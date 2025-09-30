@@ -38,7 +38,7 @@ export default function Footer() {
             <div className="w-8 h-8 bg-gray-900 rounded transform rotate-45 flex items-center justify-center">
               <div className="w-4 h-4 bg-white rounded-sm transform -rotate-45"></div>
             </div>
-            <span className="text-2xl font-bold text-gray-900">Vendaltion</span>
+            <span className="text-2xl font-bold text-gray-900">VendAItion</span>
           </motion.div>
 
           <motion.div
@@ -86,24 +86,24 @@ export default function Footer() {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="pt-8 border-t border-gray-300 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-600"
         >
-          <p>© 2025 Vendaltion CRM</p>
+          <p>© 2025 VendAItion CRM</p>
           <div className="flex items-center gap-6">
             <p>
               Made by ❤️{" "}
               <a
-                href="https://Vendaltion.tech"
+                href="https://VendAItion.tech"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-900 font-medium hover:underline"
               >
-                Vendaltion Technologies
+                VendAItion Technologies
               </a>
             </p>
             <a
-              href="mailto:Vendaltion@support.com"
+              href="mailto:VendAItion@support.com"
               className="text-gray-900 font-medium hover:underline"
             >
-              Vendaltion@support.com
+              VendAItion@support.com
             </a>
           </div>
         </motion.div>
