@@ -1,21 +1,30 @@
 "use client";
-import React, { useRef } from "react";
-import { useScroll, useTransform, motion, MotionValue } from "motion/react";
+
+import React, { useRef, useEffect, useState } from "react";
+import {
+  useScroll,
+  useTransform,
+  motion,
+  type MotionValue,
+} from "framer-motion";
+
+type ContainerScrollProps = {
+  titleComponent: string | React.ReactNode;
+  children: React.ReactNode;
+};
 
 export const ContainerScroll = ({
   titleComponent,
   children,
-}: {
-  titleComponent: string | React.ReactNode;
-  children: React.ReactNode;
-}) => {
+}: ContainerScrollProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
   });
-  const [isMobile, setIsMobile] = React.useState(false);
 
-  React.useEffect(() => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768);
     };
@@ -54,29 +63,32 @@ export const ContainerScroll = ({
   );
 };
 
-export const Header = ({ translate, titleComponent }: any) => {
+type HeaderProps = {
+  translate: MotionValue<number>;
+  titleComponent: string | React.ReactNode;
+};
+
+export const Header = ({ translate, titleComponent }: HeaderProps) => {
   return (
     <motion.div
       style={{
         translateY: translate,
       }}
-      className="div max-w-5xl mx-auto text-center"
+      className="max-w-5xl mx-auto text-center"
     >
       {titleComponent}
     </motion.div>
   );
 };
 
-export const Card = ({
-  rotate,
-  scale,
-  children,
-}: {
+type CardProps = {
   rotate: MotionValue<number>;
   scale: MotionValue<number>;
   translate: MotionValue<number>;
   children: React.ReactNode;
-}) => {
+};
+
+export const Card = ({ rotate, scale, children }: CardProps) => {
   return (
     <motion.div
       style={{
@@ -87,7 +99,7 @@ export const Card = ({
       }}
       className="max-w-5xl -mt-12 mx-auto h-[30rem] md:h-[40rem] w-full border-4 border-[#6C6C6C] p-2 md:p-6 bg-[#222222] rounded-[30px] shadow-2xl"
     >
-      <div className=" h-full w-full  overflow-hidden rounded-2xl bg-gray-100 dark:bg-zinc-900 md:rounded-2xl md:p-4 ">
+      <div className="h-full w-full overflow-hidden rounded-2xl bg-gray-100 dark:bg-zinc-900 md:rounded-2xl md:p-4">
         {children}
       </div>
     </motion.div>
