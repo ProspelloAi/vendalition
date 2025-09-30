@@ -142,7 +142,7 @@ export default function FAQAccordion() {
           <IconMail className="w-5 h-5 text-gray-600" />
           <span className="text-sm">
             Feel free to mail us for any enquiries:{" "}
-            <span className="font-medium">Vendalition@support.com</span>
+            <span className="font-medium">Vendaltion@support.com</span>
           </span>
         </motion.div>
       </div>
