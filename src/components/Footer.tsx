@@ -38,7 +38,9 @@ export default function Footer() {
             <div className="w-8 h-8 bg-gray-900 rounded transform rotate-45 flex items-center justify-center">
               <div className="w-4 h-4 bg-white rounded-sm transform -rotate-45"></div>
             </div>
-            <span className="text-2xl font-bold text-gray-900">TijarHub</span>
+            <span className="text-2xl font-bold text-gray-900">
+              Vendalition
+            </span>
           </motion.div>
 
           <motion.div
@@ -86,24 +88,24 @@ export default function Footer() {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="pt-8 border-t border-gray-300 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-600"
         >
-          <p>© 2025 Tijarhub CRM</p>
+          <p>© 2025 Vendalition CRM</p>
           <div className="flex items-center gap-6">
             <p>
               Made by ❤️{" "}
               <a
-                href="https://tijarhub.tech"
+                href="https://Vendalition.tech"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-900 font-medium hover:underline"
               >
-                Tijarhub Technologies
+                Vendalition Technologies
               </a>
             </p>
             <a
-              href="mailto:tijarhub@support.com"
+              href="mailto:Vendalition@support.com"
               className="text-gray-900 font-medium hover:underline"
             >
-              tijarhub@support.com
+              Vendalition@support.com
             </a>
           </div>
         </motion.div>

@@ -239,7 +239,7 @@ export const NavbarLogo = () => {
       <div className="w-8 h-8 bg-gray-900 rounded transform rotate-45 flex items-center justify-center">
         <div className="w-4 h-4 bg-white rounded-sm transform -rotate-45"></div>
       </div>
-      <span className="text-2xl font-bold text-gray-900">TijarHub</span>
+      <span className="text-2xl font-bold text-gray-900">Vendalition</span>
     </motion.div>
   );
 };
