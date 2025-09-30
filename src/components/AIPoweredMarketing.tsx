@@ -12,13 +12,13 @@ import {
   IconBolt,
   IconTrendingUp,
 } from "@tabler/icons-react";
+import { JSX } from "react";
 
 interface FeatureCard {
   title: string;
   description: string;
   icon: JSX.Element;
 }
-
 const features: FeatureCard[] = [
   {
     title: "Campaign Automation",
