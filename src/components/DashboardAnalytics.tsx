@@ -1,348 +1,223 @@
 "use client";
 
-import { TrendingUp, TrendingDown } from "lucide-react";
 import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  PieChart,
-  Pie,
-  Cell,
-} from "recharts";
+  TrendingUp,
+  MessageSquare,
+  Target,
+  Presentation,
+  Database,
+  Zap,
+} from "lucide-react";
 
-const salesData = [
-  { name: "5k", value: 28 },
-  { name: "10k", value: 35 },
-  { name: "15k", value: 45 },
-  { name: "20k", value: 40 },
-  { name: "25k", value: 50 },
-  { name: "30k", value: 58 },
-  { name: "35k", value: 48 },
-  { name: "40k", value: 65 },
-  { name: "45k", value: 62 },
-  { name: "50k", value: 68 },
-  { name: "55k", value: 65 },
-  { name: "60k", value: 70 },
-];
-
-const dealsData = [
+const features = [
   {
-    id: 1,
-    product: "Apple Watch",
-    location: "6096 Marjolaine Landing",
-    date: "12.09.2019 - 12.53 PM",
-    piece: 423,
-    avatar: "👤",
+    title: "Agentic Conversational Sales",
+    description:
+      "One smart agent handles inbound and outbound conversations across email, chat, WhatsApp and LinkedIn.",
+    icon: MessageSquare,
+    color: "purple",
+    stats: [
+      { label: "Channels", value: "4+" },
+      { label: "Response Time", value: "<2min" },
+      { label: "Automation", value: "95%" },
+    ],
   },
   {
-    id: 2,
-    product: "Apple Watch",
-    location: "6096 Marjolaine Landing",
-    date: "12.09.2019 - 12.53 PM",
-    piece: 423,
-    avatar: "👤",
+    title: "Lead Tracking & Intent Signals",
+    description:
+      "Track millions of web signals and buyer behaviors so you know when a prospect is ready — not just who they are.",
+    icon: Target,
+    color: "blue",
+    stats: [
+      { label: "Signals Tracked", value: "1M+" },
+      { label: "Accuracy", value: "94%" },
+      { label: "Real-time", value: "Yes" },
+    ],
   },
   {
-    id: 3,
-    product: "Apple Watch",
-    location: "6096 Marjolaine Landing",
-    date: "12.09.2019 - 12.53 PM",
-    piece: 423,
-    avatar: "👤",
+    title: "Adaptive Product Demonstrations",
+    description:
+      "Personalized demos that adjust in real time to prospect interest, voice and behavior.",
+    icon: Presentation,
+    color: "indigo",
+    stats: [
+      { label: "Personalization", value: "100%" },
+      { label: "Engagement", value: "+65%" },
+      { label: "Conversion", value: "+42%" },
+    ],
+  },
+  {
+    title: "CRM-Native Pipeline Automation",
+    description:
+      "Connects to HubSpot, Salesforce and common CRMs — actions, notes and scheduled demos write directly into your pipeline.",
+    icon: Database,
+    color: "violet",
+    stats: [
+      { label: "CRM Integrations", value: "10+" },
+      { label: "Sync Speed", value: "Instant" },
+      { label: "Data Quality", value: "99%" },
+    ],
   },
 ];
 
-const customerData = [
-  { name: "Active", value: 34249 },
-  { name: "Inactive", value: 1420 },
+const whyUs = [
+  {
+    title: "Full-funnel agent",
+    description: "Not just SDR automation or static demos",
+    highlight: "Complete Solution",
+  },
+  {
+    title: "Actionable signals",
+    description: "Deep intent > shallow noise",
+    highlight: "Real Intelligence",
+  },
+  {
+    title: "Plug & deploy",
+    description: "CRM-native connectors for fast pilots",
+    highlight: "Quick Start",
+  },
+  {
+    title: "Predictable AI spend",
+    description: "Per-account telemetry and overage controls",
+    highlight: "Cost Control",
+  },
 ];
 
-const COLORS = ["#8B5CF6", "#E0E7FF"];
+const metrics = [
+  {
+    label: "Active Conversations",
+    value: "2,847",
+    change: "+12.5%",
+    trend: "up",
+  },
+  { label: "Intent Signals", value: "15.2K", change: "+8.3%", trend: "up" },
+  { label: "Demos Scheduled", value: "492", change: "+23.7%", trend: "up" },
+  { label: "Pipeline Value", value: "$4.2M", change: "+15.8%", trend: "up" },
+];
 
-export default function DashboardAnalytics() {
+export default function SalesIntelligenceDashboard() {
   return (
-    <div className="container mx-auto px-4 py-8 space-y-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 animate-slide-up">
-        <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
-          <div className="flex items-start justify-between mb-4">
-            <div>
-              <p className="text-gray-500 text-sm mb-1">Total User</p>
-              <h3 className="text-3xl font-bold text-gray-800">50,789</h3>
-            </div>
-            <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
-              <svg
-                className="w-6 h-6 text-purple-500"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
-              </svg>
-            </div>
-          </div>
-          <div className="flex items-center gap-1 text-emerald-500 text-sm">
-            <TrendingUp className="w-4 h-4" />
-            <span className="font-medium">8.5%</span>
-            <span className="text-gray-500">Up from yesterday</span>
-          </div>
-        </div>
-
-        <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 delay-100">
-          <div className="flex items-start justify-between mb-4">
-            <div>
-              <p className="text-gray-500 text-sm mb-1">Total Order</p>
-              <h3 className="text-3xl font-bold text-gray-800">20393</h3>
-            </div>
-            <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
-              <svg
-                className="w-6 h-6 text-blue-500"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
-              </svg>
-            </div>
-          </div>
-          <div className="flex items-center gap-1 text-emerald-500 text-sm">
-            <TrendingUp className="w-4 h-4" />
-            <span className="font-medium">1.3%</span>
-            <span className="text-gray-500">Up from past week</span>
-          </div>
-        </div>
-
-        <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 delay-200">
-          <div className="flex items-start justify-between mb-4">
-            <div>
-              <p className="text-gray-500 text-sm mb-1">Total Sales</p>
-              <h3 className="text-3xl font-bold text-gray-800">$60,000</h3>
-            </div>
-            <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
-              <svg
-                className="w-6 h-6 text-purple-500"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div className="flex items-center gap-1 text-red-500 text-sm">
-            <TrendingDown className="w-4 h-4" />
-            <span className="font-medium">4.3%</span>
-            <span className="text-gray-500">Down from yesterday</span>
-          </div>
-        </div>
-
-        <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 delay-300">
-          <div className="flex items-start justify-between mb-4">
-            <div>
-              <p className="text-gray-500 text-sm mb-1">Total Pending</p>
-              <h3 className="text-3xl font-bold text-gray-800">5040</h3>
-            </div>
-            <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
-              <svg
-                className="w-6 h-6 text-blue-500"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div className="flex items-center gap-1 text-emerald-500 text-sm">
-            <TrendingUp className="w-4 h-4" />
-            <span className="font-medium">1.8%</span>
-            <span className="text-gray-500">Up from yesterday</span>
-          </div>
-        </div>
-      </div>
-
-      <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg animate-fade-in-delay-3">
-        <div className="flex items-center justify-between mb-8">
-          <h2 className="text-2xl font-semibold text-gray-800">
-            Sales Details
-          </h2>
-          <select className="px-4 py-2 bg-purple-50 text-purple-600 rounded-lg border-none outline-none cursor-pointer hover:bg-purple-100 transition-colors">
-            <option>October</option>
-            <option>November</option>
-            <option>December</option>
-          </select>
-        </div>
-
-        <div className="h-80">
-          <ResponsiveContainer width="100%" height="100%">
-            <LineChart data={salesData}>
-              <defs>
-                <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#8B5CF6" stopOpacity={0.3} />
-                  <stop offset="95%" stopColor="#8B5CF6" stopOpacity={0} />
-                </linearGradient>
-              </defs>
-              <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
-              <XAxis
-                dataKey="name"
-                stroke="#9CA3AF"
-                style={{ fontSize: "12px" }}
-              />
-              <YAxis
-                stroke="#9CA3AF"
-                style={{ fontSize: "12px" }}
-                ticks={[0, 20, 40, 60, 80, 100]}
-                domain={[0, 100]}
-                label={{ value: "100%", position: "top", offset: 10 }}
-              />
-              <Tooltip
-                contentStyle={{
-                  backgroundColor: "#8B5CF6",
-                  border: "none",
-                  borderRadius: "8px",
-                  color: "white",
-                  padding: "8px 12px",
-                }}
-                formatter={(value: number) => [`${value.toLocaleString()}`, ""]}
-                labelFormatter={() => ""}
-              />
-              <Line
-                type="monotone"
-                dataKey="value"
-                stroke="#8B5CF6"
-                strokeWidth={2}
-                fill="url(#colorValue)"
-                dot={{ fill: "#8B5CF6", r: 0 }}
-                activeDot={{ r: 6, fill: "#8B5CF6" }}
-              />
-            </LineChart>
-          </ResponsiveContainer>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <div className="lg:col-span-2 bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg animate-fade-in">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-semibold text-gray-800">
-              Deals Details
-            </h2>
-            <select className="px-4 py-2 bg-purple-50 text-purple-600 rounded-lg border-none outline-none cursor-pointer hover:bg-purple-100 transition-colors text-sm">
-              <option>October</option>
-              <option>November</option>
-              <option>December</option>
-            </select>
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead>
-                <tr className="border-b border-gray-200">
-                  <th className="text-left py-4 px-4 text-sm font-medium text-gray-600">
-                    Product Name
-                  </th>
-                  <th className="text-left py-4 px-4 text-sm font-medium text-gray-600">
-                    Location
-                  </th>
-                  <th className="text-left py-4 px-4 text-sm font-medium text-gray-600">
-                    Date - Time
-                  </th>
-                  <th className="text-left py-4 px-4 text-sm font-medium text-gray-600">
-                    Piece
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {dealsData.map((deal, index) => (
-                  <tr
-                    key={deal.id}
-                    className={`border-b border-gray-100 hover:bg-purple-50/50 transition-colors ${
-                      index === dealsData.length - 1 ? "opacity-40" : ""
-                    }`}
-                  >
-                    <td className="py-4 px-4">
-                      <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center text-sm">
-                          {deal.avatar}
-                        </div>
-                        <span className="text-gray-700 font-medium">
-                          {deal.product}
-                        </span>
-                      </div>
-                    </td>
-                    <td className="py-4 px-4 text-gray-600 text-sm">
-                      {deal.location}
-                    </td>
-                    <td className="py-4 px-4 text-gray-600 text-sm">
-                      {deal.date}
-                    </td>
-                    <td className="py-4 px-4 text-gray-700 font-medium">
-                      {deal.piece}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg animate-fade-in">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-8">
-            Customers
-          </h2>
-
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 px-4 py-8">
+      <div className="max-w-7xl mx-auto space-y-8">
+        {/* Header */}
+        <div className="text-center mb-12">
           <div className="flex justify-center mb-8">
-            <div className="relative">
-              <ResponsiveContainer width={200} height={200}>
-                <PieChart>
-                  <Pie
-                    data={customerData}
-                    cx={100}
-                    cy={100}
-                    innerRadius={70}
-                    outerRadius={90}
-                    paddingAngle={5}
-                    dataKey="value"
-                  >
-                    {customerData.map((entry, index) => (
-                      <Cell
-                        key={`cell-${index}`}
-                        fill={COLORS[index % COLORS.length]}
-                      />
-                    ))}
-                  </Pie>
-                </PieChart>
-              </ResponsiveContainer>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full shadow-sm border border-gray-200">
+              <Zap className="w-4 h-4 text-gray-700" />
+              <span className="text-sm font-medium text-gray-700">
+                Sales Intelligence Platform
+              </span>
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-gray-800 mb-2">
-                34,249
-              </div>
-              <div className="flex items-center justify-center gap-2">
-                <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
-                <span className="text-sm text-gray-600">New</span>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            Full-funnel agent with actionable signals, plug & deploy simplicity,
+            and predictable AI spend
+          </p>
+        </div>
+
+        {/* Metrics Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {metrics.map((metric, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
+              <p className="text-gray-500 text-sm mb-2">{metric.label}</p>
+              <h3 className="text-3xl font-bold text-gray-900 mb-2">
+                {metric.value}
+              </h3>
+              <div className="flex items-center gap-1 text-emerald-500 text-sm">
+                <TrendingUp className="w-4 h-4" />
+                <span className="font-medium">{metric.change}</span>
+                <span className="text-gray-500">this month</span>
               </div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-gray-800 mb-2">1420</div>
-              <div className="flex items-center justify-center gap-2">
-                <div className="w-3 h-3 bg-purple-200 rounded-full"></div>
-                <span className="text-sm text-gray-600">Returning</span>
+          ))}
+        </div>
+
+        {/* Features Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {features.map((feature, index) => {
+            const Icon = feature.icon;
+            return (
+              <div
+                key={index}
+                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group"
+              >
+                <div className="flex items-start gap-4 mb-6">
+                  <div
+                    className={`w-14 h-14 bg-${feature.color}-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform`}
+                  >
+                    <Icon className={`w-7 h-7 text-${feature.color}-600`} />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">
+                      {feature.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      {feature.description}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-3 gap-4 pt-6 border-t border-gray-100">
+                  {feature.stats.map((stat, idx) => (
+                    <div key={idx} className="text-center">
+                      <div
+                        className={`text-2xl font-bold text-${feature.color}-600 mb-1`}
+                      >
+                        {stat.value}
+                      </div>
+                      <div className="text-xs text-gray-500">{stat.label}</div>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
+            );
+          })}
+        </div>
+
+        {/* Why Us Section */}
+        <div className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-3xl p-8 md:p-12 shadow-2xl">
+          <h2 className="text-3xl font-bold text-white mb-8 text-center">
+            Why Choose Us
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {whyUs.map((item, index) => (
+              <div
+                key={index}
+                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/20 transition-all duration-300 border border-white/20"
+              >
+                <div className="inline-block px-3 py-1 bg-white/20 rounded-full text-white text-xs font-medium mb-4">
+                  {item.highlight}
+                </div>
+                <h3 className="text-lg font-bold text-white mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-purple-100 text-sm">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* CTA Section */}
+        <div className="bg-white rounded-2xl p-8 shadow-lg text-center">
+          <h3 className="text-2xl font-bold text-gray-900 mb-4">
+            Ready to transform your sales process?
+          </h3>
+          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+            Deploy in minutes with CRM-native connectors and start seeing
+            results with predictable AI spend controls
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button className="px-8 py-3 bg-purple-600 text-white rounded-xl font-semibold hover:bg-purple-700 transition-colors shadow-lg hover:shadow-xl">
+              Start Free Trial
+            </button>
+            <button className="px-8 py-3 bg-gray-100 text-gray-700 rounded-xl font-semibold hover:bg-gray-200 transition-colors">
+              Schedule Demo
+            </button>
           </div>
         </div>
       </div>

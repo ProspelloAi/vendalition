@@ -4,25 +4,25 @@ import DashboardAnalytics from "@/components/DashboardAnalytics";
 import IntegrationsSection from "@/components/IntegrationsSection";
 import ComprehensiveInsights from "@/components/ComprehensiveInsights";
 import AIPoweredMarketing from "@/components/AIPoweredMarketing";
-import FlexiblePricing from "@/components/FlexiblePricing";
-import FAQAccordion from "@/components/FAQAccordion";
+import Pricing from "@/components/Pricing";
+import FAQ from "@/components/FAQ";
 import TestimonialsSection from "@/components/TestimonialsSection";
-import CTAHeroSection from "@/components/CTAHeroSection";
 import Footer from "@/components/Footer";
+import ValueProposition from "@/components/ValueProposition";
 
 export default function Home() {
   return (
     <>
       <NavbarDemo />
       <Hero />
+      <ValueProposition />
       <DashboardAnalytics />
       <IntegrationsSection />
       <ComprehensiveInsights />
       <AIPoweredMarketing />
-      <FlexiblePricing />
-      <FAQAccordion />
+      <Pricing />
+      <FAQ />
       <TestimonialsSection />
-      <CTAHeroSection />
       <Footer />
     </>
   );

@@ -116,18 +116,20 @@ html {
 
   /* Dash animation for SVG paths */
   @keyframes dash {
-    to {
+    0% {
+      stroke-dashoffset: 1000;
+    }
+    100% {
       stroke-dashoffset: 0;
     }
   }
 
   .animate-dash {
-    stroke-dasharray: 1000;
+    stroke-dasharray: 5, 20;
     stroke-dashoffset: 1000;
-    animation: dash 2s ease-in-out forwards;
+    animation: dash 1.6s ease-in-out forwards;
   }
 
-  /* Animation delays for fade-in - only used with animate-fade-in */
   .animate-fade-in.delay-100 {
     animation-delay: 0.1s;
     opacity: 0;

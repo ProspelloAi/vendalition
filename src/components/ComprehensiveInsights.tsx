@@ -45,30 +45,28 @@ const balanceData: ChartData[] = [
 ];
 
 const features = [
-  "Seamless Integrations",
-  "Real-Time Reports",
-  "Personalized Engagement",
-  "Customer Retention",
-  "Cost-Effective",
-  "Smart Spending",
-  "Data-Driven Decisions",
-  "Increased Efficiency",
-  "Seamless Integrations",
-  "Real-Time Reports",
-  "Personalized Engagement",
-  "Customer Retention",
-  "Cost-Effective",
-  "Smart Spending",
-  "Data-Driven Decisions",
-  "Increased Efficiency",
-  "Optimized Performance",
-  "Advanced Analytics",
-  "User-Friendly Design",
-  "Scalable Solutions",
-  "Optimized Performance",
-  "Advanced Analytics",
-  "User-Friendly Design",
-  "Scalable Solutions",
+  "Agentic Conversational Sales",
+  "Lead Tracking & Intent Signals",
+  "Adaptive Product Demonstrations",
+  "CRM-Native Pipeline Automation",
+  "Full-Funnel Agent",
+  "Actionable Signals",
+  "Plug & Deploy",
+  "Predictable AI Spend",
+  "Agentic Conversational Sales",
+  "Lead Tracking & Intent Signals",
+  "Adaptive Product Demonstrations",
+  "CRM-Native Pipeline Automation",
+  "Full-Funnel Agent",
+  "Actionable Signals",
+  "Plug & Deploy",
+  "Predictable AI Spend",
+  "Agentic Conversational Sales",
+  "Lead Tracking & Intent Signals",
+  "Adaptive Product Demonstrations",
+  "CRM-Native Pipeline Automation",
+  "Full-Funnel Agent",
+  "Actionable Signals",
 ];
 
 export default function ComprehensiveInsights() {
@@ -79,19 +77,17 @@ export default function ComprehensiveInsights() {
       transition={{ duration: 0.5 }}
       className="min-h-screen bg-gray-100 p-6 flex flex-col items-center justify-center"
     >
-      <div className="w-full max-w-7xl">
+      <div className="w-full max-w-7xl -mt-24">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-3xl font-semibold text-gray-800">
-            Comprehensive Insights
-          </h2>
+          <h2 className="text-3xl font-semibold text-gray-800">Key Features</h2>
           <button className="px-4 py-2 bg-gray-200 rounded-full text-gray-600 text-sm flex items-center gap-2 hover:bg-gray-300 transition-colors">
-            <span>Live Oversight</span>
+            <span>Why Choose Us</span>
             <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
           </button>
         </div>
         <p className="text-gray-600 mb-8 text-center md:text-left">
-          Track every campaign and customer interaction to refine engagement
-          strategies
+          Full-funnel agent with actionable signals, plug & deploy simplicity,
+          and predictable AI spend
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -102,10 +98,15 @@ export default function ComprehensiveInsights() {
             className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow"
           >
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-gray-500 text-sm">Total Spent</h3>
+              <h3 className="text-gray-800 font-semibold text-lg">
+                Agentic Conversational Sales
+              </h3>
               <IconEye className="w-5 h-5 text-gray-400" />
             </div>
-            <div className="text-3xl font-bold text-gray-800 mb-4">$682.5</div>
+            <p className="text-gray-600 text-sm mb-4">
+              One smart agent handles inbound and outbound conversations across
+              email, chat, WhatsApp and LinkedIn.
+            </p>
             <ResponsiveContainer width="100%" height={200}>
               <BarChart data={data}>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} />
@@ -116,12 +117,12 @@ export default function ComprehensiveInsights() {
               </BarChart>
             </ResponsiveContainer>
             <div className="text-purple-600 mt-4 flex items-center gap-2">
-              <span className="text-sm">Real-Time Insights</span>
+              <span className="text-sm">Multi-Channel Coverage</span>
               <span className="w-2 h-2 bg-purple-600 rounded-full"></span>
             </div>
             <p className="text-gray-600 text-sm mt-2">
-              Monitor your campaigns in real time to ensure maximum
-              effectiveness and identify areas for improvement
+              Seamlessly engage prospects wherever they are with intelligent
+              automation across all major communication platforms
             </p>
           </motion.div>
 
@@ -132,18 +133,15 @@ export default function ComprehensiveInsights() {
             className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow"
           >
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-gray-500 text-sm">
-                Balance <span className="text-green-500">● on track</span>
+              <h3 className="text-gray-800 font-semibold text-lg">
+                Lead Tracking & Intent Signals
               </h3>
               <IconChartAreaLine className="w-5 h-5 text-gray-400" />
             </div>
-            <div className="text-3xl font-bold text-gray-800 mb-4">
-              <span className="text-green-500">43.50%</span>{" "}
-              <span className="text-green-500">+2.45%</span>
-            </div>
-            <div className="text-gray-500 text-sm mb-4">
-              $52.422 <span className="text-red-500">-4.79%</span>
-            </div>
+            <p className="text-gray-600 text-sm mb-4">
+              Track millions of web signals and buyer behaviors so you know when
+              a prospect is ready — not just who they are.
+            </p>
             <ResponsiveContainer width="100%" height={200}>
               <LineChart data={balanceData}>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} />
@@ -160,12 +158,12 @@ export default function ComprehensiveInsights() {
               </LineChart>
             </ResponsiveContainer>
             <div className="text-purple-600 mt-4 flex items-center gap-2">
-              <span className="text-sm">Actionable Data</span>
+              <span className="text-sm">Deep Intent Recognition</span>
               <span className="w-2 h-2 bg-purple-600 rounded-full"></span>
             </div>
             <p className="text-gray-600 text-sm mt-2">
-              Leverage analytics to enhance workflows, boost engagement, and
-              make informed marketing decisions
+              Move beyond basic data to understand true buyer intent with
+              advanced signal processing and behavioral analytics
             </p>
           </motion.div>
         </div>

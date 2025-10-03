@@ -65,7 +65,7 @@ export function NavbarDemo() {
                 key={`mobile-link-${idx}`}
                 href={item.link}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="relative text-gray-700 dark:text-neutral-300"
+                className="relative text-gray-700 "
               >
                 <span className="block">{item.name}</span>
               </a>
@@ -73,7 +73,6 @@ export function NavbarDemo() {
             <div className="flex w-full flex-col gap-4 text-gray-700">
               <NavbarButton
                 onClick={() => setIsMobileMenuOpen(false)}
-                variant="primary"
                 className="w-full"
               >
                 Book a call

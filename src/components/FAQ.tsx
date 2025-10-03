@@ -15,34 +15,27 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
   {
-    question: "What is Inbound Concierge?",
-    answer:
-      "AI agent as the first responder to all inbound leads (chat, email, website). Includes meeting scheduling with calendar integration and contextual handoff to human reps when needed.",
+    question: "How long does setup take?",
+    answer: "1–2 weeks for CRM integration and pilot config.",
   },
   {
-    question: "How does AI SDR (Outbound Automation) work?",
-    answer:
-      "Automated multi-channel outreach across call, email, LinkedIn, WhatsApp, and SMS. Features personalized dynamic sequences per persona/industry with deliverability monitoring and self-optimization.",
+    question: "Does it work with our CRM?",
+    answer: "Yes — HubSpot and Salesforce are supported. Custom CRMs via API.",
   },
   {
-    question: "What's included in Smart CRM & Pipeline Management?",
+    question: "How are AI costs handled?",
     answer:
-      "Unified view of all prospects and accounts with Kanban-style pipeline and drag-and-drop functionality. AI-driven deal progression recommends the next best action for each opportunity.",
+      "Plans include token bundles. Top-up packs and enterprise committed volumes are available.",
   },
   {
-    question: "How does Lead Scoring & Prioritization function?",
+    question: "Can VendAltion book demos in different timezones?",
     answer:
-      "Combines behavioral, firmographic, and engagement scoring to generate daily prioritized lead lists for SDRs. The system automatically updates as prospects engage with your content.",
+      "Yes — agent schedules meetings in the prospect’s local time and syncs with your reps’ calendars.",
   },
   {
-    question: "What insights does Sales Forecasting & Analytics provide?",
+    question: "Is data secure?",
     answer:
-      "Provides predictive win probability for each deal, pipeline health dashboards, and forecast accuracy benchmarking to help you make data-driven decisions.",
-  },
-  {
-    question: "What is Conversation Intelligence & Coaching?",
-    answer:
-      "Auto-transcribed calls, chats, and emails with win/loss analysis providing rep-level feedback. Includes a coaching assistant that suggests improvements based on conversation data.",
+      "Yes — role-based access, configurable retention and audit logs. We sign DPAs for enterprise customers.",
   },
 ];
 
@@ -142,7 +135,7 @@ export default function FAQAccordion() {
           <IconMail className="w-5 h-5 text-gray-600" />
           <span className="text-sm">
             Feel free to mail us for any enquiries:{" "}
-            <span className="font-medium">VendAItion@support.com</span>
+            <span className="font-medium">sahal@support.com</span>
           </span>
         </motion.div>
       </div>
