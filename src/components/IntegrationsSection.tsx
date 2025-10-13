@@ -127,7 +127,7 @@ export default function Integration() {
               className="bg-gradient-to-br from-orange-50 to-white border border-orange-100/50"
             >
               <Image
-                src="/integrations/hubspot.png"
+                src="/hubspot.png"
                 alt="HubSpot"
                 width={36}
                 height={36}
@@ -143,7 +143,7 @@ export default function Integration() {
               className="bg-gradient-to-br from-blue-50 to-white border border-blue-100/50"
             >
               <Image
-                src="/integrations/salesforce.png"
+                src="/salesforce.png"
                 alt="Salesforce"
                 width={36}
                 height={36}
@@ -159,7 +159,7 @@ export default function Integration() {
               className="bg-gradient-to-br from-purple-50 to-white border border-purple-100/50"
             >
               <Image
-                src="/integrations/pipedrive.png"
+                src="/pipedrive.png"
                 alt="Pipedrive"
                 width={36}
                 height={36}
@@ -175,7 +175,7 @@ export default function Integration() {
               className="bg-gradient-to-br from-green-50 to-white border border-green-100/50"
             >
               <Image
-                src="/integrations/zapier.png"
+                src="/zapier.png"
                 alt="Zapier"
                 width={36}
                 height={36}
@@ -191,7 +191,7 @@ export default function Integration() {
               className="bg-gradient-to-br from-yellow-50 to-white border border-yellow-100/50"
             >
               <Image
-                src="/integrations/mailchimp.png"
+                src="/mailchimp.png"
                 alt="Mailchimp"
                 width={36}
                 height={36}
@@ -207,7 +207,7 @@ export default function Integration() {
               className="bg-gradient-to-br from-pink-50 to-white border border-pink-100/50"
             >
               <Image
-                src="/integrations/slack.png"
+                src="/slack.png"
                 alt="Slack"
                 width={36}
                 height={36}
