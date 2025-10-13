@@ -101,7 +101,7 @@ export default function Integration() {
         `}</style>
 
         <div className="orbit-container">
-          {/* Central API Hub */}
+          {/* Central LOGO Hub */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30">
             <div
               ref={div4Ref}
