@@ -1,26 +1,27 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
+import Image from 'next/image';
 import {
   IconBrandInstagram,
   IconBrandLinkedin,
   IconBrandYoutube,
   IconBrandTwitter,
-} from "@tabler/icons-react";
+} from '@tabler/icons-react';
 
 const navigationLinks = [
-  { label: "Privacy Policy", href: "#privacy" },
-  { label: "Blog", href: "#blog" },
-  { label: "Changelog", href: "#changelog" },
-  { label: "Help & Docs", href: "#docs" },
-  { label: "Contact", href: "#contact" },
+  { label: 'Privacy Policy', href: '#privacy' },
+  { label: 'Blog', href: '#blog' },
+  { label: 'Changelog', href: '#changelog' },
+  { label: 'Help & Docs', href: '#docs' },
+  { label: 'Contact', href: '#contact' },
 ];
 
 const socialLinks = [
-  { icon: IconBrandInstagram, href: "#", label: "Instagram" },
-  { icon: IconBrandLinkedin, href: "#", label: "LinkedIn" },
-  { icon: IconBrandYoutube, href: "#", label: "YouTube" },
-  { icon: IconBrandTwitter, href: "#", label: "Twitter" },
+  { icon: IconBrandInstagram, href: '#', label: 'Instagram' },
+  { icon: IconBrandLinkedin, href: '#', label: 'LinkedIn' },
+  { icon: IconBrandYoutube, href: '#', label: 'YouTube' },
+  { icon: IconBrandTwitter, href: '#', label: 'Twitter' },
 ];
 
 export default function Footer() {
@@ -40,18 +41,20 @@ export default function Footer() {
       <footer className="bg-gradient-to-br from-gray-100 to-gray-200 border-t border-gray-300">
         <div className="max-w-7xl mx-auto px-8 py-12">
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 mb-8">
+            {/* Logo */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
               className="flex items-center gap-2"
             >
-              <div className="w-8 h-8 bg-gray-900 rounded transform rotate-45 flex items-center justify-center">
-                <div className="w-4 h-4 bg-white rounded-sm transform -rotate-45"></div>
-              </div>
-              <span className="text-2xl font-bold text-gray-900">
-                VendAItion
-              </span>
+              <Image
+                src="/logo.png"
+                alt="VendAItion Logo"
+                width={240}
+                height={240}
+                className="rounded"
+              />
             </motion.div>
 
             <motion.div
@@ -97,7 +100,7 @@ export default function Footer() {
             <p>
               🛡️ <strong>Privacy:</strong> VendAItion respects your privacy. We
               only process data required for pilot performance and can sign a
-              DPA on request.{" "}
+              DPA on request.{' '}
               <a
                 href="#privacy"
                 className="underline hover:text-gray-900 font-medium"
@@ -108,7 +111,7 @@ export default function Footer() {
             </p>
             <p>
               📝 <strong>Changelog:</strong> See the latest product updates and
-              release notes in{" "}
+              release notes in{' '}
               <a
                 href="#changelog"
                 className="underline hover:text-gray-900 font-medium"
@@ -128,7 +131,7 @@ export default function Footer() {
             <p>© 2025 VendAItion CRM</p>
             <div className="flex items-center gap-6">
               <p>
-                Made by ❤️{" "}
+                Made by ❤️{' '}
                 <a
                   href="https://VendAItion.tech"
                   target="_blank"

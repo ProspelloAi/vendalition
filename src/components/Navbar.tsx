@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import {
   Navbar,
   NavBody,
@@ -9,26 +9,27 @@ import {
   MobileNavHeader,
   MobileNavToggle,
   MobileNavMenu,
-} from "@/components/ui/resizable-navbar";
-import { useState } from "react";
+} from '@/components/ui/resizable-navbar';
+import { useState } from 'react';
+import { InteractiveHoverButton } from './ui/interactive-hover-button';
 
 export function NavbarDemo() {
   const navItems = [
     {
-      name: "Features",
-      link: "#features",
+      name: 'Features',
+      link: '#features',
     },
     {
-      name: "Integrations",
-      link: "#integrations",
+      name: 'Integrations',
+      link: '#integrations',
     },
     {
-      name: "Pricing",
-      link: "#pricing",
+      name: 'Pricing',
+      link: '#pricing',
     },
     {
-      name: "Contact",
-      link: "#contact",
+      name: 'Contact',
+      link: '#contact',
     },
   ];
 
@@ -42,7 +43,9 @@ export function NavbarDemo() {
           <NavbarLogo />
           <NavItems items={navItems} className="!text-gray-700" />
           <div className="flex items-center gap-4 text-gray-700">
-            <NavbarButton variant="primary">Book a call</NavbarButton>
+            <button>
+              <InteractiveHoverButton>Book a call</InteractiveHoverButton>
+            </button>
           </div>
         </NavBody>
 

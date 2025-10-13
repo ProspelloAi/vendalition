@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
-import { IconRocket, IconClock, IconCurrencyDollar } from "@tabler/icons-react";
-import { ChartCandlestick } from "lucide-react";
-import { JSX } from "react";
+import { motion } from 'framer-motion';
+import { IconRocket, IconClock, IconCurrencyDollar } from '@tabler/icons-react';
+import { ChartCandlestick } from 'lucide-react';
+import { JSX } from 'react';
 
 interface ValueProp {
   title: string;
@@ -13,21 +13,21 @@ interface ValueProp {
 
 const valueProps: ValueProp[] = [
   {
-    title: "Book more qualified demos, faster",
+    title: 'Book more qualified demos, faster',
     description:
-      "Agentic AI engages leads within seconds and schedules meetings at peak intent.",
-    icon: <IconRocket className="w-8 h-8 text-purple-600" />,
+      'Agentic AI engages leads within seconds and schedules meetings at peak intent.',
+    icon: <IconRocket className="w-8 h-8 text-[#34b3e1]" />,
   },
   {
-    title: "Shorten sales cycles",
+    title: 'Shorten sales cycles',
     description:
-      "Personalized, real-time demos and automated follow-ups convert faster.",
+      'Personalized, real-time demos and automated follow-ups convert faster.',
     icon: <IconClock className="w-8 h-8 text-blue-600" />,
   },
   {
-    title: "Cut cost per lead",
+    title: 'Cut cost per lead',
     description:
-      "AI qualification and sequencing reduce SDR workload so reps focus on closing.",
+      'AI qualification and sequencing reduce SDR workload so reps focus on closing.',
     icon: <IconCurrencyDollar className="w-8 h-8 text-emerald-600" />,
   },
 ];
@@ -40,8 +40,8 @@ export default function ValueProposition() {
         className="absolute inset-0 opacity-20"
         style={{
           backgroundImage:
-            "radial-gradient(circle, #9ca3af 1px, transparent 1px)",
-          backgroundSize: "24px 24px",
+            'radial-gradient(circle, #9ca3af 1px, transparent 1px)',
+          backgroundSize: '24px 24px',
         }}
       />
 

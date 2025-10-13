@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useState } from "react";
+import { useState } from 'react';
 import {
   Target,
   Users,
@@ -11,99 +11,99 @@ import {
   Sparkles,
   Activity,
   Clock,
-} from "lucide-react";
+} from 'lucide-react';
 
 const hotAccounts = [
   {
-    name: "Acme Corp",
+    name: 'Acme Corp',
     score: 94,
-    signal: "Researching CRM integrations",
-    action: "Demo template ready",
+    signal: 'Researching CRM integrations',
+    action: 'Demo template ready',
   },
   {
-    name: "TechFlow Inc",
+    name: 'TechFlow Inc',
     score: 89,
-    signal: "Hiring Sales Director",
-    action: "Outreach recommended",
+    signal: 'Hiring Sales Director',
+    action: 'Outreach recommended',
   },
   {
-    name: "DataSync Ltd",
+    name: 'DataSync Ltd',
     score: 85,
-    signal: "Mentioned competitor on LinkedIn",
-    action: "Route to AE: Sarah",
+    signal: 'Mentioned competitor on LinkedIn',
+    action: 'Route to AE: Sarah',
   },
   {
-    name: "CloudBase",
+    name: 'CloudBase',
     score: 82,
-    signal: "Downloaded whitepaper",
-    action: "Nurture queue assigned",
+    signal: 'Downloaded whitepaper',
+    action: 'Nurture queue assigned',
   },
 ];
 
 const metrics = [
   {
-    label: "Website Visitors",
-    value: "2,847",
-    period: "Today",
-    trend: "+12%",
+    label: 'Website Visitors',
+    value: '2,847',
+    period: 'Today',
+    trend: '+12%',
     icon: Users,
-    color: "purple",
+    color: 'purple',
   },
   {
-    label: "Hot Accounts",
-    value: "156",
-    period: "Score > 80",
-    trend: "+8",
+    label: 'Hot Accounts',
+    value: '156',
+    period: 'Score > 80',
+    trend: '+8',
     icon: Target,
-    color: "orange",
+    color: 'orange',
   },
   {
-    label: "Demos Booked",
-    value: "42",
-    period: "Today",
-    trend: "+23%",
+    label: 'Demos Booked',
+    value: '42',
+    period: 'Today',
+    trend: '+23%',
     icon: Calendar,
-    color: "blue",
+    color: 'blue',
   },
   {
-    label: "Token Usage",
-    value: "12.5k",
-    period: "Per Account/Month",
-    trend: "Optimal",
+    label: 'Token Usage',
+    value: '12.5k',
+    period: 'Per Account/Month',
+    trend: 'Optimal',
     icon: Zap,
-    color: "green",
+    color: 'green',
   },
 ];
 
 const timelineData = [
   {
-    time: "2m ago",
-    account: "Acme Corp",
-    activity: "Visited pricing page 3x",
+    time: '2m ago',
+    account: 'Acme Corp',
+    activity: 'Visited pricing page 3x',
     intent: 94,
   },
   {
-    time: "8m ago",
-    account: "TechFlow Inc",
-    activity: "Opened outreach email",
+    time: '8m ago',
+    account: 'TechFlow Inc',
+    activity: 'Opened outreach email',
     intent: 89,
   },
   {
-    time: "15m ago",
-    account: "DataSync Ltd",
-    activity: "Downloaded case study",
+    time: '15m ago',
+    account: 'DataSync Ltd',
+    activity: 'Downloaded case study',
     intent: 85,
   },
   {
-    time: "23m ago",
-    account: "CloudBase",
-    activity: "Engaged with chatbot",
+    time: '23m ago',
+    account: 'CloudBase',
+    activity: 'Engaged with chatbot',
     intent: 82,
   },
 ];
 
 export default function LeadTrackingDashboard() {
-  const [selectedPeriod, setSelectedPeriod] = useState("daily");
+  const [selectedPeriod, setSelectedPeriod] = useState('daily');
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-slate-50 px-4 py-12 -mt-8">
@@ -123,13 +123,13 @@ export default function LeadTrackingDashboard() {
               VendAltion continuously scans millions of public signals —
               mentions, product research, job postings, behavioral clues and
               more — to surface high-intent accounts and contacts. We translate
-              those signals into{" "}
+              those signals into{' '}
               <span className="font-semibold text-purple-600">
                 timed outreach
               </span>
               , so your agent contacts prospects
               <span className="italic">
-                {" "}
+                {' '}
                 when they&apos;re actively researching or showing interest
               </span>
               .
@@ -137,10 +137,10 @@ export default function LeadTrackingDashboard() {
 
             <div className="space-y-4 pt-4">
               {[
-                "See the hottest accounts first — prioritized by intent score.",
-                "Get recommended outreach lines and demo templates tailored to the signal.",
-                "Route leads to the right AE or nurture queue automatically.",
-                "Decrease time-to-contact and increase demo booking rate.",
+                'See the hottest accounts first — prioritized by intent score.',
+                'Get recommended outreach lines and demo templates tailored to the signal.',
+                'Route leads to the right AE or nurture queue automatically.',
+                'Decrease time-to-contact and increase demo booking rate.',
               ].map((benefit, index) => (
                 <div key={index} className="flex items-start gap-3 group">
                   <div className="w-6 h-6 rounded-full bg-purple-500 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform">
@@ -226,31 +226,31 @@ export default function LeadTrackingDashboard() {
 
             <div className="flex items-center gap-3">
               <button
-                onClick={() => setSelectedPeriod("daily")}
+                onClick={() => setSelectedPeriod('daily')}
                 className={`px-4 py-2 rounded-lg font-medium transition-all ${
-                  selectedPeriod === "daily"
-                    ? "bg-white text-purple-900"
-                    : "bg-white/10 text-white hover:bg-white/20"
+                  selectedPeriod === 'daily'
+                    ? 'bg-white text-purple-900'
+                    : 'bg-white/10 text-white hover:bg-white/20'
                 }`}
               >
                 Daily
               </button>
               <button
-                onClick={() => setSelectedPeriod("weekly")}
+                onClick={() => setSelectedPeriod('weekly')}
                 className={`px-4 py-2 rounded-lg font-medium transition-all ${
-                  selectedPeriod === "weekly"
-                    ? "bg-white text-purple-900"
-                    : "bg-white/10 text-white hover:bg-white/20"
+                  selectedPeriod === 'weekly'
+                    ? 'bg-white text-purple-900'
+                    : 'bg-white/10 text-white hover:bg-white/20'
                 }`}
               >
                 Weekly
               </button>
               <button
-                onClick={() => setSelectedPeriod("monthly")}
+                onClick={() => setSelectedPeriod('monthly')}
                 className={`px-4 py-2 rounded-lg font-medium transition-all ${
-                  selectedPeriod === "monthly"
-                    ? "bg-white text-purple-900"
-                    : "bg-white/10 text-white hover:bg-white/20"
+                  selectedPeriod === 'monthly'
+                    ? 'bg-white text-purple-900'
+                    : 'bg-white/10 text-white hover:bg-white/20'
                 }`}
               >
                 Monthly

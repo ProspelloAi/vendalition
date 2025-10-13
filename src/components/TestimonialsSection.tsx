@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 import {
   IconSparkles,
   IconArrowRight,
   IconPlayerPlay,
-} from "@tabler/icons-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+} from '@tabler/icons-react';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 interface Testimonial {
   text: string;
@@ -18,54 +18,38 @@ interface Testimonial {
 
 const testimonials: Testimonial[] = [
   {
-    text: "VendAltion helped us cut SDR time in half and double demo conversions.",
-    name: "Noah Lowe",
-    title: "Head of Sales",
-    avatar: "https://github.com/shadcn.png",
-    fallback: "NL",
+    text: 'VendAltion helped us cut SDR time in half and double demo conversions.',
+    name: 'Noah Lowe',
+    title: 'Head of Sales',
+    avatar: 'https://github.com/shadcn.png',
+    fallback: 'NL',
   },
   {
-    text: "Real-time intent signals made outreach much more relevant — win rate improved.",
-    name: "Sophia Romero",
-    title: "Head of Growth",
-    avatar: "https://github.com/vercel.png",
-    fallback: "SR",
+    text: 'Real-time intent signals made outreach much more relevant — win rate improved.',
+    name: 'Sophia Romero',
+    title: 'Head of Growth',
+    avatar: 'https://github.com/vercel.png',
+    fallback: 'SR',
   },
   {
-    text: "VendAltion reduced manual outreach by 60% and doubled our demo bookings in 6 weeks.",
-    name: "Pilot Customer",
-    title: "Head of Sales",
-    avatar: "https://github.com/max.png",
-    fallback: "PC",
+    text: 'VendAltion reduced manual outreach by 60% and doubled our demo bookings in 6 weeks.',
+    name: 'Pilot Customer',
+    title: 'Head of Sales',
+    avatar: 'https://github.com/max.png',
+    fallback: 'PC',
   },
 ];
 
 const logoAvatars = [
-  "https://github.com/shadcn.png",
-  "https://github.com/vercel.png",
-  "https://github.com/max.png",
-  "https://github.com/jaredpalmer.png",
+  'https://github.com/shadcn.png',
+  'https://github.com/vercel.png',
+  'https://github.com/max.png',
+  'https://github.com/jaredpalmer.png',
 ];
 
 export default function PromoTrustCTA() {
   return (
-    <div className="flex flex-col gap-24">
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="bg-gradient-to-r from-purple-600 to-purple-700 text-white py-6 px-4 rounded-xl text-center shadow-lg mx-8"
-      >
-        <p className="text-sm md:text-base font-medium">
-          ● Your buyers are out there. We show you where. Track millions of
-          signals so you never miss a high-intent prospect.
-        </p>
-        <p className="text-sm md:text-base font-medium mt-1">
-          ● We have raised pre-seed funding — pilots open now. Apply to be an
-          early reference customer.
-        </p>
-      </motion.div>
-
+    <div className="flex flex-col">
       <section className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 p-8 flex flex-col items-center justify-center">
         <div className="w-full max-w-7xl">
           <motion.div
@@ -74,7 +58,7 @@ export default function PromoTrustCTA() {
             transition={{ duration: 0.5 }}
             className="flex justify-center mb-6"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-200">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-200 mb-20">
               <IconSparkles className="w-4 h-4 text-gray-700" />
               <span className="text-sm text-gray-700 font-medium">
                 Used by teams scaling sales operations
@@ -166,7 +150,7 @@ export default function PromoTrustCTA() {
         </div>
       </section>
 
-      <section className="bg-gradient-to-br from-gray-100 to-gray-200 p-8 flex flex-col items-center justify-center text-center -mt-24">
+      <section className="bg-gradient-to-br from-gray-100 to-gray-200 p-8 flex flex-col items-center justify-center text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -177,10 +161,10 @@ export default function PromoTrustCTA() {
             Book your demo today — see agentic AI in action
           </h2>
           <p className="text-gray-700 text-lg">
-            sahal@vendaltion.com •{" "}
+            sahal@vendaltion.com •{' '}
             <a
               href="https://calendly.com/vendaltion/demo"
-              className="text-purple-700 font-semibold underline"
+              className="text-blue-400 font-semibold underline"
             >
               Book a demo
             </a>
@@ -190,7 +174,7 @@ export default function PromoTrustCTA() {
             business day.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-4">
-            <button className="group px-8 py-4 bg-purple-600 hover:bg-purple-700 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all flex items-center gap-2">
+            <button className="group px-8 py-4 bg-blue-500 hover:bg-blue-700 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all flex items-center gap-2">
               Get Started
               <IconArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>

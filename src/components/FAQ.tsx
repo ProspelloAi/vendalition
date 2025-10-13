@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   IconChevronDown,
   IconCircleCheck,
   IconMail,
-} from "@tabler/icons-react";
-import { useState } from "react";
+} from '@tabler/icons-react';
+import { useState } from 'react';
 
 interface FAQItem {
   question: string;
@@ -15,27 +15,27 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
   {
-    question: "How long does setup take?",
-    answer: "1–2 weeks for CRM integration and pilot config.",
+    question: 'How long does setup take?',
+    answer: '1–2 weeks for CRM integration and pilot config.',
   },
   {
-    question: "Does it work with our CRM?",
-    answer: "Yes — HubSpot and Salesforce are supported. Custom CRMs via API.",
+    question: 'Does it work with our CRM?',
+    answer: 'Yes — HubSpot and Salesforce are supported. Custom CRMs via API.',
   },
   {
-    question: "How are AI costs handled?",
+    question: 'How are AI costs handled?',
     answer:
-      "Plans include token bundles. Top-up packs and enterprise committed volumes are available.",
+      'Plans include token bundles. Top-up packs and enterprise committed volumes are available.',
   },
   {
-    question: "Can VendAltion book demos in different timezones?",
+    question: 'Can VendAltion book demos in different timezones?',
     answer:
-      "Yes — agent schedules meetings in the prospect’s local time and syncs with your reps’ calendars.",
+      'Yes — agent schedules meetings in the prospect’s local time and syncs with your reps’ calendars.',
   },
   {
-    question: "Is data secure?",
+    question: 'Is data secure?',
     answer:
-      "Yes — role-based access, configurable retention and audit logs. We sign DPAs for enterprise customers.",
+      'Yes — role-based access, configurable retention and audit logs. We sign DPAs for enterprise customers.',
   },
 ];
 
@@ -58,7 +58,7 @@ export default function FAQAccordion() {
           transition={{ duration: 0.5 }}
           className="flex justify-center mb-6"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-200">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-200 mb-20">
             <IconCircleCheck className="w-4 h-4 text-gray-700" />
             <span className="text-sm text-gray-700 font-medium">
               Your Queries, Simplified
@@ -109,7 +109,7 @@ export default function FAQAccordion() {
                 {openIndex === index && (
                   <motion.div
                     initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
+                    animate={{ height: 'auto', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
@@ -134,7 +134,7 @@ export default function FAQAccordion() {
         >
           <IconMail className="w-5 h-5 text-gray-600" />
           <span className="text-sm">
-            Feel free to mail us for any enquiries:{" "}
+            Feel free to mail us for any enquiries:{' '}
             <span className="font-medium">sahal@support.com</span>
           </span>
         </motion.div>

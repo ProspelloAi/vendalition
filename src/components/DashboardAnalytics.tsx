@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
   TrendingUp,
@@ -7,92 +7,93 @@ import {
   Presentation,
   Database,
   Zap,
-} from "lucide-react";
+} from 'lucide-react';
+import { DotPattern } from '@/components/ui/dot-pattern';
 
 const features = [
   {
-    title: "Agentic Conversational Sales",
+    title: 'Agentic Conversational Sales',
     description:
-      "One smart agent handles inbound and outbound conversations across email, chat, WhatsApp and LinkedIn.",
+      'One smart agent handles inbound and outbound conversations across email, chat, WhatsApp and LinkedIn.',
     icon: MessageSquare,
-    color: "purple",
+    color: 'purple',
     stats: [
-      { label: "Channels", value: "4+" },
-      { label: "Response Time", value: "<2min" },
-      { label: "Automation", value: "95%" },
+      { label: 'Channels', value: '4+' },
+      { label: 'Response Time', value: '<2min' },
+      { label: 'Automation', value: '95%' },
     ],
   },
   {
-    title: "Lead Tracking & Intent Signals",
+    title: 'Lead Tracking & Intent Signals',
     description:
-      "Track millions of web signals and buyer behaviors so you know when a prospect is ready — not just who they are.",
+      'Track millions of web signals and buyer behaviors so you know when a prospect is ready — not just who they are.',
     icon: Target,
-    color: "blue",
+    color: 'blue',
     stats: [
-      { label: "Signals Tracked", value: "1M+" },
-      { label: "Accuracy", value: "94%" },
-      { label: "Real-time", value: "Yes" },
+      { label: 'Signals Tracked', value: '1M+' },
+      { label: 'Accuracy', value: '94%' },
+      { label: 'Real-time', value: 'Yes' },
     ],
   },
   {
-    title: "Adaptive Product Demonstrations",
+    title: 'Adaptive Product Demonstrations',
     description:
-      "Personalized demos that adjust in real time to prospect interest, voice and behavior.",
+      'Personalized demos that adjust in real time to prospect interest, voice and behavior.',
     icon: Presentation,
-    color: "indigo",
+    color: 'indigo',
     stats: [
-      { label: "Personalization", value: "100%" },
-      { label: "Engagement", value: "+65%" },
-      { label: "Conversion", value: "+42%" },
+      { label: 'Personalization', value: '100%' },
+      { label: 'Engagement', value: '+65%' },
+      { label: 'Conversion', value: '+42%' },
     ],
   },
   {
-    title: "CRM-Native Pipeline Automation",
+    title: 'CRM-Native Pipeline Automation',
     description:
-      "Connects to HubSpot, Salesforce and common CRMs — actions, notes and scheduled demos write directly into your pipeline.",
+      'Connects to HubSpot, Salesforce and common CRMs — actions, notes and scheduled demos write directly into your pipeline.',
     icon: Database,
-    color: "violet",
+    color: 'violet',
     stats: [
-      { label: "CRM Integrations", value: "10+" },
-      { label: "Sync Speed", value: "Instant" },
-      { label: "Data Quality", value: "99%" },
+      { label: 'CRM Integrations', value: '10+' },
+      { label: 'Sync Speed', value: 'Instant' },
+      { label: 'Data Quality', value: '99%' },
     ],
   },
 ];
 
 const whyUs = [
   {
-    title: "Full-funnel agent",
-    description: "Not just SDR automation or static demos",
-    highlight: "Complete Solution",
+    title: 'Full-funnel agent',
+    description: 'Not just SDR automation or static demos',
+    highlight: 'Complete Solution',
   },
   {
-    title: "Actionable signals",
-    description: "Deep intent > shallow noise",
-    highlight: "Real Intelligence",
+    title: 'Actionable signals',
+    description: 'Deep intent > shallow noise',
+    highlight: 'Real Intelligence',
   },
   {
-    title: "Plug & deploy",
-    description: "CRM-native connectors for fast pilots",
-    highlight: "Quick Start",
+    title: 'Plug & deploy',
+    description: 'CRM-native connectors for fast pilots',
+    highlight: 'Quick Start',
   },
   {
-    title: "Predictable AI spend",
-    description: "Per-account telemetry and overage controls",
-    highlight: "Cost Control",
+    title: 'Predictable AI spend',
+    description: 'Per-account telemetry and overage controls',
+    highlight: 'Cost Control',
   },
 ];
 
 const metrics = [
   {
-    label: "Active Conversations",
-    value: "2,847",
-    change: "+12.5%",
-    trend: "up",
+    label: 'Active Conversations',
+    value: '2,847',
+    change: '+12.5%',
+    trend: 'up',
   },
-  { label: "Intent Signals", value: "15.2K", change: "+8.3%", trend: "up" },
-  { label: "Demos Scheduled", value: "492", change: "+23.7%", trend: "up" },
-  { label: "Pipeline Value", value: "$4.2M", change: "+15.8%", trend: "up" },
+  { label: 'Intent Signals', value: '15.2K', change: '+8.3%', trend: 'up' },
+  { label: 'Demos Scheduled', value: '492', change: '+23.7%', trend: 'up' },
+  { label: 'Pipeline Value', value: '$4.2M', change: '+15.8%', trend: 'up' },
 ];
 
 export default function SalesIntelligenceDashboard() {
@@ -180,7 +181,7 @@ export default function SalesIntelligenceDashboard() {
         </div>
 
         {/* Why Us Section */}
-        <div className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-3xl p-8 md:p-12 shadow-2xl">
+        <div className="bg-gradient-to-r from-[#34b3e1] to-[#284390] rounded-3xl p-8 md:p-12 shadow-2xl">
           <h2 className="text-3xl font-bold text-white mb-8 text-center">
             Why Choose Us
           </h2>
@@ -188,36 +189,41 @@ export default function SalesIntelligenceDashboard() {
             {whyUs.map((item, index) => (
               <div
                 key={index}
-                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/20 transition-all duration-300 border border-white/20"
+                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/20 hover:shadow-lg transition-all duration-300 border border-white/20"
               >
-                <div className="inline-block px-3 py-1 bg-white/20 rounded-full text-white text-xs font-medium mb-4">
+                <div className="inline-block px-3 py-1 bg-white/25 rounded-full text-white text-xs font-medium mb-4">
                   {item.highlight}
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2">
                   {item.title}
                 </h3>
-                <p className="text-purple-100 text-sm">{item.description}</p>
+                <p className="text-white/80 text-sm">{item.description}</p>
               </div>
             ))}
           </div>
         </div>
 
         {/* CTA Section */}
-        <div className="bg-white rounded-2xl p-8 shadow-lg text-center">
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">
-            Ready to transform your sales process?
-          </h3>
-          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-            Deploy in minutes with CRM-native connectors and start seeing
-            results with predictable AI spend controls
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-3 bg-purple-600 text-white rounded-xl font-semibold hover:bg-purple-700 transition-colors shadow-lg hover:shadow-xl">
-              Start Free Trial
-            </button>
-            <button className="px-8 py-3 bg-gray-100 text-gray-700 rounded-xl font-semibold hover:bg-gray-200 transition-colors">
-              Schedule Demo
-            </button>
+
+        <div className="relative w-full flex flex-col items-center justify-center overflow-hidden rounded-3xl bg-[#34b3e1]/10 p-12 shadow-2xl">
+          {/* Dots in background */}
+          <DotPattern className="absolute inset-0 z-0 opacity-50 [mask-image:radial-gradient(circle_at_center,white,transparent_80%)]" />
+
+          <div className="relative z-10 flex flex-col items-center">
+            <h3 className="text-4xl font-extrabold text-gray-900 mb-4 text-center">
+              Ready to transform your sales process?
+            </h3>
+
+            <p className="text-gray-700 mb-8 max-w-2xl text-center text-lg leading-relaxed">
+              Deploy in minutes with CRM-native connectors and start seeing
+              results with predictable AI spend controls
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button className="px-10 py-4 bg-gradient-to-r from-[#34b3e1] to-[#284390] text-white font-bold rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300">
+                Schedule Demo
+              </button>
+            </div>
           </div>
         </div>
       </div>

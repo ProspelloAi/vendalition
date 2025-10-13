@@ -1,14 +1,38 @@
-"use client";
+'use client';
 
-import { Sparkles, Layers, Clock, Settings } from "lucide-react";
-import { useEffect, useState } from "react";
+import { Layers, Clock, Settings } from 'lucide-react';
+import { useRef, forwardRef } from 'react';
+import Image from 'next/image';
+import { cn } from '@/lib/utils';
 
-export default function IntegrationsSection() {
-  const [animate, setAnimate] = useState(false);
+const Circle = forwardRef<
+  HTMLDivElement,
+  { className?: string; children?: React.ReactNode }
+>(({ className, children }, ref) => {
+  return (
+    <div
+      ref={ref}
+      className={cn(
+        'z-10 flex size-14 items-center justify-center rounded-2xl bg-white p-3 shadow-lg hover:shadow-xl transition-shadow duration-300',
+        className
+      )}
+    >
+      {children}
+    </div>
+  );
+});
 
-  useEffect(() => {
-    setAnimate(true);
-  }, []);
+Circle.displayName = 'Circle';
+
+export default function Integration() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const div1Ref = useRef<HTMLDivElement>(null);
+  const div2Ref = useRef<HTMLDivElement>(null);
+  const div3Ref = useRef<HTMLDivElement>(null);
+  const div4Ref = useRef<HTMLDivElement>(null);
+  const div5Ref = useRef<HTMLDivElement>(null);
+  const div6Ref = useRef<HTMLDivElement>(null);
+  const slackRef = useRef<HTMLDivElement>(null);
 
   return (
     <section id="integrations" className="container mx-auto px-4 py-20">
@@ -24,152 +48,174 @@ export default function IntegrationsSection() {
           Connects to your stack
         </h2>
         <p className="text-gray-600 text-lg">
-          HubSpot • Salesforce • Pipedrive • Zapier • Mailchimp — plus custom
-          integrations via API.
+          HubSpot • Salesforce • Pipedrive • Zapier • Mailchimp • Slack — plus
+          custom integrations via API.
         </p>
       </div>
 
       {/* Integration Network */}
-      <div className="relative max-w-5xl mx-auto h-[500px] mb-16">
-        {/* SVG Lines */}
-        <svg
-          className="absolute inset-0 w-full h-full pointer-events-none"
-          style={{ zIndex: 0 }}
-        >
-          <defs>
-            <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#E5E7EB" stopOpacity="0.3" />
-              <stop offset="50%" stopColor="#9CA3AF" stopOpacity="0.8" />
-              <stop offset="100%" stopColor="#E5E7EB" stopOpacity="0.3" />
-            </linearGradient>
-          </defs>
+      <div
+        className="relative max-w-3xl mx-auto h-[450px] mb-16 flex items-center justify-center"
+        ref={containerRef}
+      >
+        <style jsx>{`
+          @keyframes orbit {
+            from {
+              transform: rotate(0deg) translateX(180px) rotate(0deg);
+            }
+            to {
+              transform: rotate(360deg) translateX(180px) rotate(-360deg);
+            }
+          }
+          .orbit-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+          }
+          .orbit-item {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -28px 0 0 -28px;
+            animation: orbit 20s linear infinite;
+            z-index: 5;
+          }
+          .orbit-item:nth-child(4) {
+            animation-delay: 0s;
+          }
+          .orbit-item:nth-child(5) {
+            animation-delay: -3.33s;
+          }
+          .orbit-item:nth-child(6) {
+            animation-delay: -6.66s;
+          }
+          .orbit-item:nth-child(7) {
+            animation-delay: -10s;
+          }
+          .orbit-item:nth-child(8) {
+            animation-delay: -13.33s;
+          }
+          .orbit-item:nth-child(9) {
+            animation-delay: -16.66s;
+          }
+        `}</style>
 
-          <path
-            d="M 70 40 Q 350 80, 450 240"
-            stroke="url(#lineGradient)"
-            strokeWidth="2"
-            fill="none"
-            strokeDasharray="5, 20"
-            className={animate ? "animate-dash" : ""}
-            style={{ animationDelay: "0s" }}
-          />
-
-          <path
-            d="M 75 255 L 550 250"
-            stroke="url(#lineGradient)"
-            strokeWidth="2"
-            fill="none"
-            strokeDasharray="5, 20"
-            className={animate ? "animate-dash" : ""}
-            style={{ animationDelay: "0.2s" }}
-          />
-
-          <path
-            d="M 70 460 Q 350 400, 450 240"
-            stroke="url(#lineGradient)"
-            strokeWidth="2"
-            fill="none"
-            strokeDasharray="5, 20"
-            className={animate ? "animate-dash" : ""}
-            style={{ animationDelay: "0.4s" }}
-          />
-
-          {/* Center to Top Right */}
-          <path
-            d="M 550 240 Q 750 80, 950 40"
-            stroke="url(#lineGradient)"
-            strokeWidth="2"
-            fill="none"
-            strokeDasharray="5, 20"
-            className={animate ? "animate-dash" : ""}
-            style={{ animationDelay: "0.6s" }}
-          />
-
-          {/* Center to Middle Right */}
-          <path
-            d="M 550 240 L 980 260"
-            stroke="url(#lineGradient)"
-            strokeWidth="2"
-            fill="none"
-            strokeDasharray="5, 20"
-            className={animate ? "animate-dash" : ""}
-            style={{ animationDelay: "0.8s" }}
-          />
-
-          {/* Center to Bottom Right */}
-          <path
-            d="M 550 240 Q 750 400, 950 460"
-            stroke="url(#lineGradient)"
-            strokeWidth="2"
-            fill="none"
-            strokeDasharray="5, 20"
-            className={animate ? "animate-dash" : ""}
-            style={{ animationDelay: "1s" }}
-          />
-        </svg>
-
-        {/* Left Side Icons */}
-        <div className="absolute left-0 top-0 animate-fade-in">
-          <div className="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-            <div className="w-8 h-8 text-gray-800 font-bold text-xs flex items-center justify-center">
-              HubSpot
+        <div className="orbit-container">
+          {/* Central API Hub */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30">
+            <div
+              ref={div4Ref}
+              className="size-64 flex items-center justify-center"
+            >
+              <Image
+                src="/logo.png"
+                alt="vandaltion"
+                width={300}
+                height={300}
+                className="object-contain drop-shadow-2xl"
+              />
             </div>
           </div>
-        </div>
 
-        <div className="absolute left-0 top-1/2 -translate-y-1/2 animate-fade-in delay-100">
-          <div className="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-            <div className="w-8 h-8 text-gray-800 font-bold text-xs flex items-center justify-center">
-              Salesforce
-            </div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[360px] h-[360px] border-2 border-white/60 rounded-full shadow-sm" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[380px] h-[380px] border-2 border-white/40 rounded-full shadow-sm" />
+
+          <div className="orbit-item">
+            <Circle
+              ref={div1Ref}
+              className="bg-gradient-to-br from-orange-50 to-white border border-orange-100/50"
+            >
+              <Image
+                src="/integrations/hubspot.png"
+                alt="HubSpot"
+                width={36}
+                height={36}
+                className="object-contain"
+              />
+            </Circle>
           </div>
-        </div>
 
-        <div className="absolute left-0 bottom-0 animate-fade-in delay-200">
-          <div className="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-            <div className="w-8 h-8 text-gray-800 font-bold text-xs flex items-center justify-center">
-              Pipedrive
-            </div>
+          <div className="orbit-item">
+            <Circle
+              ref={div2Ref}
+              className="bg-gradient-to-br from-blue-50 to-white border border-blue-100/50"
+            >
+              <Image
+                src="/integrations/salesforce.png"
+                alt="Salesforce"
+                width={36}
+                height={36}
+                className="object-contain"
+              />
+            </Circle>
           </div>
-        </div>
 
-        {/* Center Icon */}
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 animate-scale-in z-10 ml-16 mt-12">
-          <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl p-8 shadow-2xl">
-            <Sparkles className="w-12 h-12 text-white" />
+          <div className="orbit-item">
+            <Circle
+              ref={div3Ref}
+              className="bg-gradient-to-br from-purple-50 to-white border border-purple-100/50"
+            >
+              <Image
+                src="/integrations/pipedrive.png"
+                alt="Pipedrive"
+                width={36}
+                height={36}
+                className="object-contain"
+              />
+            </Circle>
           </div>
-        </div>
 
-        {/* Right Side Icons */}
-        <div className="absolute right-0 top-0 animate-fade-in delay-300">
-          <div className="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-            <div className="w-8 h-8 text-gray-800 font-bold text-xs flex items-center justify-center">
-              Zapier
-            </div>
+          <div className="orbit-item">
+            <Circle
+              ref={div5Ref}
+              className="bg-gradient-to-br from-green-50 to-white border border-green-100/50"
+            >
+              <Image
+                src="/integrations/zapier.png"
+                alt="Zapier"
+                width={36}
+                height={36}
+                className="object-contain"
+              />
+            </Circle>
           </div>
-        </div>
 
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 animate-fade-in delay-400">
-          <div className="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-            <div className="w-8 h-8 text-gray-800 font-bold text-xs flex items-center justify-center">
-              Mailchimp
-            </div>
+          <div className="orbit-item">
+            <Circle
+              ref={div6Ref}
+              className="bg-gradient-to-br from-yellow-50 to-white border border-yellow-100/50"
+            >
+              <Image
+                src="/integrations/mailchimp.png"
+                alt="Mailchimp"
+                width={36}
+                height={36}
+                className="object-contain"
+              />
+            </Circle>
           </div>
-        </div>
 
-        <div className="absolute right-0 bottom-0 animate-fade-in delay-500">
-          <div className="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-            <div className="w-8 h-8 text-gray-800 font-bold text-xs flex items-center justify-center">
-              API
-            </div>
+          <div className="orbit-item">
+            <Circle
+              ref={slackRef}
+              className="bg-gradient-to-br from-pink-50 to-white border border-pink-100/50"
+            >
+              <Image
+                src="/integrations/slack.png"
+                alt="Slack"
+                width={36}
+                height={36}
+                className="object-contain"
+              />
+            </Circle>
           </div>
         </div>
       </div>
 
       {/* Features */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto animate-slide-up">
-        <div className="text-center">
-          <div className="inline-flex items-center justify-center w-12 h-12 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg mb-4">
+        <div className="text-center group cursor-pointer">
+          <div className="inline-flex items-center justify-center w-12 h-12 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg mb-4 group-hover:shadow-xl transition-shadow duration-300">
             <svg
               className="w-6 h-6 text-gray-700"
               fill="none"
@@ -189,8 +235,8 @@ export default function IntegrationsSection() {
           </h3>
         </div>
 
-        <div className="text-center">
-          <div className="inline-flex items-center justify-center w-12 h-12 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg mb-4">
+        <div className="text-center group cursor-pointer">
+          <div className="inline-flex items-center justify-center w-12 h-12 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg mb-4 group-hover:shadow-xl transition-shadow duration-300">
             <Clock className="w-6 h-6 text-gray-700" />
           </div>
           <h3 className="text-lg font-semibold text-gray-800 mb-2">
@@ -198,8 +244,8 @@ export default function IntegrationsSection() {
           </h3>
         </div>
 
-        <div className="text-center">
-          <div className="inline-flex items-center justify-center w-12 h-12 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg mb-4">
+        <div className="text-center group cursor-pointer">
+          <div className="inline-flex items-center justify-center w-12 h-12 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg mb-4 group-hover:shadow-xl transition-shadow duration-300">
             <Settings className="w-6 h-6 text-gray-700" />
           </div>
           <h3 className="text-lg font-semibold text-gray-800 mb-2">
