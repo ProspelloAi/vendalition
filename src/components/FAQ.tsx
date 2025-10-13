@@ -16,7 +16,7 @@ interface FAQItem {
 const faqs: FAQItem[] = [
   {
     question: 'How long does setup take?',
-    answer: '1–2 weeks for CRM integration and pilot config.',
+    answer: '1–2 weeks for CRM integration and pilot configuration.',
   },
   {
     question: 'Does it work with our CRM?',
@@ -35,7 +35,7 @@ const faqs: FAQItem[] = [
   {
     question: 'Is data secure?',
     answer:
-      'Yes — role-based access, configurable retention and audit logs. We sign DPAs for enterprise customers.',
+      'Yes — role-based access, configurable retention, and audit logs. We sign DPAs for enterprise customers.',
   },
 ];
 
@@ -47,20 +47,17 @@ export default function FAQAccordion() {
   };
 
   return (
-    <div
-      id="contact"
-      className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 p-8 flex flex-col items-center justify-center"
-    >
-      <div className="w-full max-w-3xl">
+    <div className="bg-gradient-to-b from-gray-50 via-purple-50 to-pink-50 p-8 flex flex-col items-center justify-start">
+      <div className="w-full max-w-3xl p-6">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="flex justify-center mb-6"
+          transition={{ duration: 0.6 }}
+          className="flex justify-center mb-4"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-200 mb-20">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white rounded-full shadow-sm border border-gray-200">
             <IconCircleCheck className="w-4 h-4 text-gray-700" />
-            <span className="text-sm text-gray-700 font-medium">
+            <span className="text-sm sm:text-base text-gray-700 font-semibold">
               Your Queries, Simplified
             </span>
           </div>
@@ -69,31 +66,36 @@ export default function FAQAccordion() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-center mb-12"
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="text-center mb-8"
         >
-          <h1 className="text-5xl font-bold text-gray-900 mb-4">
-            Questions? Answers!
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
+            Got Questions? We’ve Got Answers
           </h1>
-          <p className="text-gray-600 text-lg">
-            Find quick answers to the most common questions about our platform
+          <p className="text-gray-700 text-sm sm:text-base">
+            Explore the most common questions and find solutions quickly.
           </p>
         </motion.div>
 
-        <div className="space-y-4 mb-12">
+        <div className="space-y-3 mb-8">
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white rounded-2xl shadow-sm overflow-hidden"
+              className={`relative bg-white rounded-2xl shadow-md overflow-hidden border border-gray-200 hover:shadow-xl transition-shadow duration-300`}
             >
+              {/* Colored accent for open card */}
+              {openIndex === index && (
+                <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-blue-400 to-purple-400 rounded-l-2xl shadow-lg"></div>
+              )}
+
               <button
                 onClick={() => toggleAccordion(index)}
-                className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
+                className="w-full px-5 py-4 flex items-center justify-between text-left hover:bg-blue-50 focus:bg-blue-50 transition-colors duration-200 relative"
               >
-                <span className="text-lg font-medium text-gray-900 pr-4">
+                <span className="text-sm sm:text-base font-medium text-gray-900 pr-3">
                   {faq.question}
                 </span>
                 <motion.div
@@ -111,11 +113,11 @@ export default function FAQAccordion() {
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: 'auto', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 0.35 }}
                     className="overflow-hidden"
                   >
-                    <div className="px-6 pb-5 pt-2">
-                      <p className="text-gray-600 leading-relaxed">
+                    <div className="px-5 pb-4 pt-2">
+                      <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
                         {faq.answer}
                       </p>
                     </div>
@@ -129,13 +131,13 @@ export default function FAQAccordion() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.8 }}
-          className="flex items-center justify-center gap-2 text-gray-700"
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="flex items-center justify-center gap-2 text-gray-700 text-sm sm:text-base"
         >
           <IconMail className="w-5 h-5 text-gray-600" />
-          <span className="text-sm">
-            Feel free to mail us for any enquiries:{' '}
-            <span className="font-medium">sahal@support.com</span>
+          <span>
+            Still have questions? Email us at{' '}
+            <span className="font-semibold">support@vendaltion.com</span>
           </span>
         </motion.div>
       </div>

@@ -113,6 +113,7 @@ export default function Integration() {
                 width={300}
                 height={300}
                 className="object-contain drop-shadow-2xl"
+                unoptimized
               />
             </div>
           </div>
@@ -131,6 +132,7 @@ export default function Integration() {
                 width={36}
                 height={36}
                 className="object-contain"
+                unoptimized
               />
             </Circle>
           </div>
@@ -146,6 +148,7 @@ export default function Integration() {
                 width={36}
                 height={36}
                 className="object-contain"
+                unoptimized
               />
             </Circle>
           </div>
@@ -161,6 +164,7 @@ export default function Integration() {
                 width={36}
                 height={36}
                 className="object-contain"
+                unoptimized
               />
             </Circle>
           </div>
@@ -176,6 +180,7 @@ export default function Integration() {
                 width={36}
                 height={36}
                 className="object-contain"
+                unoptimized
               />
             </Circle>
           </div>
@@ -191,6 +196,7 @@ export default function Integration() {
                 width={36}
                 height={36}
                 className="object-contain"
+                unoptimized
               />
             </Circle>
           </div>
@@ -206,6 +212,7 @@ export default function Integration() {
                 width={36}
                 height={36}
                 className="object-contain"
+                unoptimized
               />
             </Circle>
           </div>

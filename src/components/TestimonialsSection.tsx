@@ -50,7 +50,7 @@ const logoAvatars = [
 export default function PromoTrustCTA() {
   return (
     <div className="flex flex-col">
-      <section className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 p-8 flex flex-col items-center justify-center">
+      <section className=" bg-gradient-to-br from-gray-100 to-gray-200 p-8 flex flex-col items-center justify-center">
         <div className="w-full max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -58,7 +58,7 @@ export default function PromoTrustCTA() {
             transition={{ duration: 0.5 }}
             className="flex justify-center mb-6"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-200 mb-20">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-200 mb-5">
               <IconSparkles className="w-4 h-4 text-gray-700" />
               <span className="text-sm text-gray-700 font-medium">
                 Used by teams scaling sales operations
@@ -160,15 +160,7 @@ export default function PromoTrustCTA() {
           <h2 className="text-4xl md:text-5xl font-bold text-gray-800">
             Book your demo today — see agentic AI in action
           </h2>
-          <p className="text-gray-700 text-lg">
-            sahal@vendaltion.com •{' '}
-            <a
-              href="https://calendly.com/vendaltion/demo"
-              className="text-blue-400 font-semibold underline"
-            >
-              Book a demo
-            </a>
-          </p>
+
           <p className="text-gray-500 italic text-sm">
             We’re offline — leave a message and we’ll get back within one
             business day.

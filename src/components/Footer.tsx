@@ -145,7 +145,7 @@ export default function Footer() {
                 href="mailto:VendAItion@support.com"
                 className="text-gray-900 font-medium hover:underline"
               >
-                VendAItion@support.com
+                support@vendaltion.com
               </a>
             </div>
           </motion.div>
