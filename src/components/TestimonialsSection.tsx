@@ -1,12 +1,14 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
+import { useState } from "react";
 import {
   IconSparkles,
   IconArrowRight,
   IconPlayerPlay,
-} from '@tabler/icons-react';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+} from "@tabler/icons-react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { CalendlyModal } from "@/components/ui/calendly-modal";
 
 interface Testimonial {
   text: string;
@@ -18,36 +20,37 @@ interface Testimonial {
 
 const testimonials: Testimonial[] = [
   {
-    text: 'VendAltion helped us cut SDR time in half and double demo conversions.',
-    name: 'Noah Lowe',
-    title: 'Head of Sales',
-    avatar: 'https://github.com/shadcn.png',
-    fallback: 'NL',
+    text: "VendAltion helped us cut SDR time in half and double demo conversions.",
+    name: "Noah Lowe",
+    title: "Head of Sales",
+    avatar: "https://github.com/shadcn.png",
+    fallback: "NL",
   },
   {
-    text: 'Real-time intent signals made outreach much more relevant — win rate improved.',
-    name: 'Sophia Romero',
-    title: 'Head of Growth',
-    avatar: 'https://github.com/vercel.png',
-    fallback: 'SR',
+    text: "Real-time intent signals made outreach much more relevant — win rate improved.",
+    name: "Sophia Romero",
+    title: "Head of Growth",
+    avatar: "https://github.com/vercel.png",
+    fallback: "SR",
   },
   {
-    text: 'VendAltion reduced manual outreach by 60% and doubled our demo bookings in 6 weeks.',
-    name: 'Pilot Customer',
-    title: 'Head of Sales',
-    avatar: 'https://github.com/max.png',
-    fallback: 'PC',
+    text: "VendAltion reduced manual outreach by 60% and doubled our demo bookings in 6 weeks.",
+    name: "Pilot Customer",
+    title: "Head of Sales",
+    avatar: "https://github.com/max.png",
+    fallback: "PC",
   },
 ];
 
 const logoAvatars = [
-  'https://github.com/shadcn.png',
-  'https://github.com/vercel.png',
-  'https://github.com/max.png',
-  'https://github.com/jaredpalmer.png',
+  "https://github.com/shadcn.png",
+  "https://github.com/vercel.png",
+  "https://github.com/max.png",
+  "https://github.com/jaredpalmer.png",
 ];
 
 export default function PromoTrustCTA() {
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
   return (
     <div className="flex flex-col">
       <section className=" bg-gradient-to-br from-gray-100 to-gray-200 p-8 flex flex-col items-center justify-center">
@@ -166,11 +169,17 @@ export default function PromoTrustCTA() {
             business day.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-4">
-            <button className="group px-8 py-4 bg-blue-500 hover:bg-blue-700 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all flex items-center gap-2">
+            <button
+              onClick={() => setIsCalendlyOpen(true)}
+              className="group px-8 py-4 bg-blue-500 hover:bg-blue-700 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all flex items-center gap-2"
+            >
               Get Started
               <IconArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
-            <button className="px-8 py-4 bg-gray-800 hover:bg-gray-900 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all flex items-center gap-2">
+            <button
+              onClick={() => setIsCalendlyOpen(true)}
+              className="px-8 py-4 bg-gray-800 hover:bg-gray-900 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all flex items-center gap-2"
+            >
               <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">
                 <IconPlayerPlay className="w-3 h-3 fill-white" />
               </div>
@@ -179,6 +188,10 @@ export default function PromoTrustCTA() {
           </div>
         </motion.div>
       </section>
+      <CalendlyModal
+        isOpen={isCalendlyOpen}
+        onClose={() => setIsCalendlyOpen(false)}
+      />
     </div>
   );
 }

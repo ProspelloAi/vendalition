@@ -1,5 +1,5 @@
-'use client';
-
+"use client";
+import { useState } from "react";
 import {
   TrendingUp,
   MessageSquare,
@@ -7,96 +7,98 @@ import {
   Presentation,
   Database,
   Zap,
-} from 'lucide-react';
-import { DotPattern } from '@/components/ui/dot-pattern';
+} from "lucide-react";
+import { DotPattern } from "@/components/ui/dot-pattern";
+import { CalendlyModal } from "@/components/ui/calendly-modal";
 
 const features = [
   {
-    title: 'Agentic Conversational Sales',
+    title: "Agentic Conversational Sales",
     description:
-      'One smart agent handles inbound and outbound conversations across email, chat, WhatsApp and LinkedIn.',
+      "One smart agent handles inbound and outbound conversations across email, chat, WhatsApp and LinkedIn.",
     icon: MessageSquare,
-    color: 'purple',
+    color: "purple",
     stats: [
-      { label: 'Channels', value: '4+' },
-      { label: 'Response Time', value: '<2min' },
-      { label: 'Automation', value: '95%' },
+      { label: "Channels", value: "4+" },
+      { label: "Response Time", value: "<2min" },
+      { label: "Automation", value: "95%" },
     ],
   },
   {
-    title: 'Lead Tracking & Intent Signals',
+    title: "Lead Tracking & Intent Signals",
     description:
-      'Track millions of web signals and buyer behaviors so you know when a prospect is ready — not just who they are.',
+      "Track millions of web signals and buyer behaviors so you know when a prospect is ready — not just who they are.",
     icon: Target,
-    color: 'blue',
+    color: "blue",
     stats: [
-      { label: 'Signals Tracked', value: '1M+' },
-      { label: 'Accuracy', value: '94%' },
-      { label: 'Real-time', value: 'Yes' },
+      { label: "Signals Tracked", value: "1M+" },
+      { label: "Accuracy", value: "94%" },
+      { label: "Real-time", value: "Yes" },
     ],
   },
   {
-    title: 'Adaptive Product Demonstrations',
+    title: "Adaptive Product Demonstrations",
     description:
-      'Personalized demos that adjust in real time to prospect interest, voice and behavior.',
+      "Personalized demos that adjust in real time to prospect interest, voice and behavior.",
     icon: Presentation,
-    color: 'indigo',
+    color: "indigo",
     stats: [
-      { label: 'Personalization', value: '100%' },
-      { label: 'Engagement', value: '+65%' },
-      { label: 'Conversion', value: '+42%' },
+      { label: "Personalization", value: "100%" },
+      { label: "Engagement", value: "+65%" },
+      { label: "Conversion", value: "+42%" },
     ],
   },
   {
-    title: 'CRM-Native Pipeline Automation',
+    title: "CRM-Native Pipeline Automation",
     description:
-      'Connects to HubSpot, Salesforce and common CRMs — actions, notes and scheduled demos write directly into your pipeline.',
+      "Connects to HubSpot, Salesforce and common CRMs — actions, notes and scheduled demos write directly into your pipeline.",
     icon: Database,
-    color: 'violet',
+    color: "violet",
     stats: [
-      { label: 'CRM Integrations', value: '10+' },
-      { label: 'Sync Speed', value: 'Instant' },
-      { label: 'Data Quality', value: '99%' },
+      { label: "CRM Integrations", value: "10+" },
+      { label: "Sync Speed", value: "Instant" },
+      { label: "Data Quality", value: "99%" },
     ],
   },
 ];
 
 const whyUs = [
   {
-    title: 'Full-funnel agent',
-    description: 'Not just SDR automation or static demos',
-    highlight: 'Complete Solution',
+    title: "Full-funnel agent",
+    description: "Not just SDR automation or static demos",
+    highlight: "Complete Solution",
   },
   {
-    title: 'Actionable signals',
-    description: 'Deep intent > shallow noise',
-    highlight: 'Real Intelligence',
+    title: "Actionable signals",
+    description: "Deep intent > shallow noise",
+    highlight: "Real Intelligence",
   },
   {
-    title: 'Plug & deploy',
-    description: 'CRM-native connectors for fast pilots',
-    highlight: 'Quick Start',
+    title: "Plug & deploy",
+    description: "CRM-native connectors for fast pilots",
+    highlight: "Quick Start",
   },
   {
-    title: 'Predictable AI spend',
-    description: 'Per-account telemetry and overage controls',
-    highlight: 'Cost Control',
+    title: "Predictable AI spend",
+    description: "Per-account telemetry and overage controls",
+    highlight: "Cost Control",
   },
 ];
 
 const metrics = [
   {
-    label: 'Active Conversations',
-    value: '2,847',
-    change: '+12.5%',
-    trend: 'up',
+    label: "Active Conversations",
+    value: "2,847",
+    change: "+12.5%",
+    trend: "up",
   },
-  { label: 'Intent Signals', value: '15.2K', change: '+8.3%', trend: 'up' },
-  { label: 'Demos Scheduled', value: '492', change: '+23.7%', trend: 'up' },
-  { label: 'Pipeline Value', value: '$4.2M', change: '+15.8%', trend: 'up' },
+  { label: "Intent Signals", value: "15.2K", change: "+8.3%", trend: "up" },
+  { label: "Demos Scheduled", value: "492", change: "+23.7%", trend: "up" },
+  { label: "Pipeline Value", value: "$4.2M", change: "+15.8%", trend: "up" },
 ];
 
 export default function SalesIntelligenceDashboard() {
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 px-4 py-8">
       <div className="max-w-7xl mx-auto space-y-8">
@@ -220,13 +222,20 @@ export default function SalesIntelligenceDashboard() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-10 py-4 bg-gradient-to-r from-[#34b3e1] to-[#284390] text-white font-bold rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300">
+              <button
+                onClick={() => setIsCalendlyOpen(true)}
+                className="px-10 py-4 bg-gradient-to-r from-[#34b3e1] to-[#284390] text-white font-bold rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300"
+              >
                 Schedule Demo
               </button>
             </div>
           </div>
         </div>
       </div>
+      <CalendlyModal
+        isOpen={isCalendlyOpen}
+        onClose={() => setIsCalendlyOpen(false)}
+      />
     </div>
   );
 }

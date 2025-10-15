@@ -1,8 +1,8 @@
-'use client';
-
-import { motion } from 'framer-motion';
-import { IconCheck, IconCrown, IconHeart } from '@tabler/icons-react';
-import { useState } from 'react';
+"use client";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { IconCheck, IconCrown, IconHeart } from "@tabler/icons-react";
+import { CalendlyModal } from "@/components/ui/calendly-modal";
 
 interface PricingFeature {
   text: string;
@@ -15,71 +15,72 @@ interface PricingPlan {
   features: PricingFeature[];
   description: string;
   buttonText: string;
-  buttonVariant?: 'trial' | 'standard' | 'sales';
+  buttonVariant?: "trial" | "standard" | "sales";
 }
 
 const plans: PricingPlan[] = [
   {
-    name: 'Starter',
+    name: "Starter",
     priceMonthly: 149,
-    description: '40k tokens • 300 leads/day • basic dashboards',
+    description: "40k tokens • 300 leads/day • basic dashboards",
     features: [
-      { text: '40k tokens' },
-      { text: '300 leads/day' },
-      { text: 'Basic dashboards' },
+      { text: "40k tokens" },
+      { text: "300 leads/day" },
+      { text: "Basic dashboards" },
     ],
-    buttonText: 'Start trial',
-    buttonVariant: 'trial',
+    buttonText: "Start trial",
+    buttonVariant: "trial",
   },
   {
-    name: 'Growth',
+    name: "Growth",
     priceMonthly: 349,
     isPopular: true,
-    description: '150k tokens • 2,000 leads/day • advanced analytics',
+    description: "150k tokens • 2,000 leads/day • advanced analytics",
     features: [
-      { text: '150k tokens' },
-      { text: '2,000 leads/day' },
-      { text: 'Advanced analytics' },
+      { text: "150k tokens" },
+      { text: "2,000 leads/day" },
+      { text: "Advanced analytics" },
     ],
-    buttonText: 'Get started',
-    buttonVariant: 'standard',
+    buttonText: "Get started",
+    buttonVariant: "standard",
   },
   {
-    name: 'Pro',
+    name: "Pro",
     priceMonthly: 699,
-    description: '600k tokens • 10,000 leads/day • priority support',
+    description: "600k tokens • 10,000 leads/day • priority support",
     features: [
-      { text: '600k tokens' },
-      { text: '10,000 leads/day' },
-      { text: 'Priority support' },
+      { text: "600k tokens" },
+      { text: "10,000 leads/day" },
+      { text: "Priority support" },
     ],
-    buttonText: 'Contact sales',
-    buttonVariant: 'sales',
+    buttonText: "Contact sales",
+    buttonVariant: "sales",
   },
 ];
 
 const enterprisePlan: PricingPlan = {
-  name: 'Enterprise',
-  description: 'Custom solutions • Unlimited leads • Dedicated manager',
+  name: "Enterprise",
+  description: "Custom solutions • Unlimited leads • Dedicated manager",
   features: [
-    { text: 'Custom integrations' },
-    { text: 'Unlimited tokens & leads' },
-    { text: 'Dedicated account manager' },
-    { text: 'Enterprise security' },
-    { text: 'SLA guarantees' },
+    { text: "Custom integrations" },
+    { text: "Unlimited tokens & leads" },
+    { text: "Dedicated account manager" },
+    { text: "Enterprise security" },
+    { text: "SLA guarantees" },
   ],
-  buttonText: 'Contact sales',
-  buttonVariant: 'sales',
+  buttonText: "Contact sales",
+  buttonVariant: "sales",
 };
 
 export default function Pricing() {
-  const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>(
-    'monthly'
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
+  const [billingPeriod, setBillingPeriod] = useState<"monthly" | "yearly">(
+    "monthly"
   );
 
   const getPrice = (priceMonthly?: number) => {
     if (!priceMonthly) return null;
-    if (billingPeriod === 'monthly') return priceMonthly;
+    if (billingPeriod === "monthly") return priceMonthly;
     return Math.round((priceMonthly * 12 * 0.85) / 12); // Annual pricing (15% off)
   };
 
@@ -91,7 +92,7 @@ export default function Pricing() {
   };
 
   const periodLabel =
-    billingPeriod === 'monthly' ? '/ month' : '/ month (billed annually)';
+    billingPeriod === "monthly" ? "/ month" : "/ month (billed annually)";
 
   return (
     <div
@@ -135,25 +136,25 @@ export default function Pricing() {
             <motion.div
               layout
               className={`absolute h-9 w-24 rounded-lg bg-gray-200 z-0 transition-all duration-300 ${
-                billingPeriod === 'monthly' ? 'left-1' : 'left-[102px]'
+                billingPeriod === "monthly" ? "left-1" : "left-[102px]"
               }`}
             />
             <button
-              onClick={() => setBillingPeriod('monthly')}
+              onClick={() => setBillingPeriod("monthly")}
               className={`relative z-10 px-6 py-2 rounded-lg text-sm font-medium transition-all ${
-                billingPeriod === 'monthly'
-                  ? 'text-gray-900'
-                  : 'text-gray-600 hover:text-gray-900'
+                billingPeriod === "monthly"
+                  ? "text-gray-900"
+                  : "text-gray-600 hover:text-gray-900"
               }`}
             >
               Monthly
             </button>
             <button
-              onClick={() => setBillingPeriod('yearly')}
+              onClick={() => setBillingPeriod("yearly")}
               className={`relative z-10 px-6 py-2 rounded-lg text-sm font-medium transition-all ${
-                billingPeriod === 'yearly'
-                  ? 'text-gray-900'
-                  : 'text-gray-600 hover:text-gray-900'
+                billingPeriod === "yearly"
+                  ? "text-gray-900"
+                  : "text-gray-600 hover:text-gray-900"
               }`}
             >
               Yearly
@@ -180,8 +181,8 @@ export default function Pricing() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className={`bg-white rounded-2xl p-5 shadow-sm hover:shadow-lg transition-all duration-300 relative max-w-72 w-full border ${
                   plan.isPopular
-                    ? 'ring-2 ring-purple-500/20 shadow-purple-500/10 -translate-y-2'
-                    : 'border-gray-100'
+                    ? "ring-2 ring-purple-500/20 shadow-purple-500/10 -translate-y-2"
+                    : "border-gray-100"
                 }`}
               >
                 <div className="mb-4">
@@ -208,21 +209,22 @@ export default function Pricing() {
                     </div>
                   )}
 
-                  {billingPeriod === 'yearly' && savings && (
+                  {billingPeriod === "yearly" && savings && (
                     <p className="text-emerald-600 text-xs font-medium mb-2">
                       Save ${savings}/year
                     </p>
                   )}
 
                   <button
+                    onClick={() => setIsCalendlyOpen(true)}
                     className={`w-full py-2 rounded-lg font-medium transition-all flex items-center justify-center gap-2 text-sm ${
                       plan.isPopular
-                        ? 'bg-gray-900 text-white hover:bg-gray-800'
-                        : plan.buttonVariant === 'trial'
-                        ? 'bg-blue-600 text-white hover:bg-blue-700'
-                        : plan.buttonVariant === 'sales'
-                        ? 'bg-gray-800 text-white hover:bg-gray-900'
-                        : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
+                        ? "bg-gray-900 text-white hover:bg-gray-800"
+                        : plan.buttonVariant === "trial"
+                        ? "bg-blue-600 text-white hover:bg-blue-700"
+                        : plan.buttonVariant === "sales"
+                        ? "bg-gray-800 text-white hover:bg-gray-900"
+                        : "bg-gray-100 text-gray-900 hover:bg-gray-200"
                     }`}
                   >
                     {plan.buttonText}
@@ -262,7 +264,10 @@ export default function Pricing() {
               8–12 week paid pilot — tailored setup, weekly reviews and a
               conversion playbook.
             </p>
-            <button className="px-6 py-2 bg-gray-700 text-white rounded-xl hover:bg-gray-900 transition-all font-medium">
+            <button
+              onClick={() => setIsCalendlyOpen(true)}
+              className="px-6 py-2 bg-gray-700 text-white rounded-xl hover:bg-gray-900 transition-all font-medium"
+            >
               Contact us for pilot pricing
             </button>
           </motion.div>
@@ -281,6 +286,10 @@ export default function Pricing() {
           </span>
         </motion.div>
       </div>
+      <CalendlyModal
+        isOpen={isCalendlyOpen}
+        onClose={() => setIsCalendlyOpen(false)}
+      />
     </div>
   );
 }

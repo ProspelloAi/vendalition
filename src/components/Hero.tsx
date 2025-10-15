@@ -1,10 +1,13 @@
-'use client';
+"use client";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Globe } from "@/components/ui/globe";
+import { Highlighter } from "@/components/ui/highlighter";
+import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
+import { CalendlyModal } from "@/components/ui/calendly-modal";
 
-import { motion } from 'framer-motion';
-import { Globe } from '@/components/ui/globe';
-import { Highlighter } from '@/components/ui/highlighter';
-import { InteractiveHoverButton } from '@/components/ui/interactive-hover-button';
 export default function Hero() {
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
   return (
     <>
       <div className="fixed inset-0 bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 -z-10" />
@@ -18,7 +21,7 @@ export default function Hero() {
       <main id="features" className="relative z-0 ">
         <div className="container mx-auto px-4 py-16">
           <div className="text-center mb-16 animate-fade-in">
-            <div className="inline-flex items-center justify-center w-28 h-28   mb-8 animate-bounce-slow">
+            <div className="hidden md:inline-flex items-center justify-center w-28 h-28 mb-8 animate-bounce-slow">
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -30,6 +33,7 @@ export default function Hero() {
                 </div>
               </motion.div>
             </div>
+
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-gray-800 mb-4 tracking-tight">
               Agentic AI for Sales
             </h1>
@@ -41,28 +45,31 @@ export default function Hero() {
               demos — then hands ready-to-close opportunities to your reps.
             </p>
             <p className="text-gray-600 text-lg animate-fade-in-delay mb-4">
-              {' '}
+              {" "}
               No extra tabs. No busywork.
             </p>
 
             <p className="mt-10">
-              Turn every{' '}
+              Turn every{" "}
               <Highlighter action="underline" color="#FF9800">
                 conversation into conversion
-              </Highlighter>{' '}
-              — powered by{' '}
+              </Highlighter>{" "}
+              — powered by{" "}
               <Highlighter action="highlight" color="#87CEFA">
                 VendAItion
-              </Highlighter>{' '}
+              </Highlighter>{" "}
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-delay-2 mt-12">
-              <button>
+              <button onClick={() => setIsCalendlyOpen(true)}>
                 <InteractiveHoverButton>Request a demo</InteractiveHoverButton>
               </button>
 
               {/* Apply for 8-week pilot */}
-              <button className="px-8 py-3 bg-[#284390] text-white rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center gap-2">
+              <button
+                onClick={() => setIsCalendlyOpen(true)}
+                className="px-8 py-3 bg-[#284390] text-white rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center gap-2"
+              >
                 <svg
                   className="w-5 h-5 text-white"
                   fill="none"
@@ -97,6 +104,10 @@ export default function Hero() {
           </div>
         </div>
       </main>
+      <CalendlyModal
+        isOpen={isCalendlyOpen}
+        onClose={() => setIsCalendlyOpen(false)}
+      />
     </>
   );
 }
