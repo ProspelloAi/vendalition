@@ -99,12 +99,12 @@ const metrics = [
 
 export default function SalesIntelligenceDashboard() {
   const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 px-4 py-8">
-      <div className="max-w-7xl mx-auto space-y-8">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <div className="flex justify-center mb-8">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 px-4 py-10 -mt-12 relative z-10">
+      <div className="max-w-7xl mx-auto space-y-10">
+        <header className="text-center mb-8 sm:mb-12">
+          <div className=" sm:flex  justify-center mb-8">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full shadow-sm border border-gray-200">
               <Zap className="w-4 h-4 text-gray-700" />
               <span className="text-sm font-medium text-gray-700">
@@ -113,125 +113,207 @@ export default function SalesIntelligenceDashboard() {
             </div>
           </div>
 
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
             Full-funnel agent with actionable signals, plug & deploy simplicity,
             and predictable AI spend
           </p>
-        </div>
+        </header>
 
-        {/* Metrics Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {metrics.map((metric, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              <p className="text-gray-500 text-sm mb-2">{metric.label}</p>
-              <h3 className="text-3xl font-bold text-gray-900 mb-2">
-                {metric.value}
-              </h3>
-              <div className="flex items-center gap-1 text-emerald-500 text-sm">
-                <TrendingUp className="w-4 h-4" />
-                <span className="font-medium">{metric.change}</span>
-                <span className="text-gray-500">this month</span>
-              </div>
-            </div>
-          ))}
-        </div>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-20 bg-gradient-to-b from-sky-100/40 to-transparent rounded-full blur-3xl opacity-60" />
 
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {features.map((feature, index) => {
-            const Icon = feature.icon;
-            return (
-              <div
-                key={index}
-                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group"
-              >
-                <div className="flex items-start gap-4 mb-6">
-                  <div
-                    className={`w-14 h-14 bg-${feature.color}-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform`}
-                  >
-                    <Icon className={`w-7 h-7 text-${feature.color}-600`} />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">
-                      {feature.title}
-                    </h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      {feature.description}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-3 gap-4 pt-6 border-t border-gray-100">
-                  {feature.stats.map((stat, idx) => (
-                    <div key={idx} className="text-center">
-                      <div
-                        className={`text-2xl font-bold text-${feature.color}-600 mb-1`}
-                      >
-                        {stat.value}
-                      </div>
-                      <div className="text-xs text-gray-500">{stat.label}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Why Us Section */}
-        <div className="bg-gradient-to-r from-[#34b3e1] to-[#284390] rounded-3xl p-8 md:p-12 shadow-2xl">
-          <h2 className="text-3xl font-bold text-white mb-8 text-center">
-            Why Choose Us
+        <section aria-labelledby="metrics-heading">
+          <h2 id="metrics-heading" className="sr-only">
+            Key metrics
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {whyUs.map((item, index) => (
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+            {metrics.slice(0, 2).map((metric, index) => (
               <div
                 key={index}
-                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/20 hover:shadow-lg transition-all duration-300 border border-white/20"
+                className="bg-white rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
-                <div className="inline-block px-3 py-1 bg-white/25 rounded-full text-white text-xs font-medium mb-4">
-                  {item.highlight}
-                </div>
-                <h3 className="text-lg font-bold text-white mb-2">
-                  {item.title}
+                <p className="text-gray-500 text-xs sm:text-sm mb-2">
+                  {metric.label}
+                </p>
+                <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-1">
+                  {metric.value}
                 </h3>
-                <p className="text-white/80 text-sm">{item.description}</p>
+                <div className="flex items-center gap-1 text-emerald-500 text-xs sm:text-sm">
+                  <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4" />
+                  <span className="font-medium">{metric.change}</span>
+                  <span className="text-gray-500">this month</span>
+                </div>
+              </div>
+            ))}
+
+            {/* Hidden metrics visible on md+ */}
+            {metrics.slice(2).map((metric, index) => (
+              <div
+                key={index}
+                className="hidden md:block bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              >
+                <p className="text-gray-500 text-sm mb-2">{metric.label}</p>
+                <h3 className="text-3xl font-bold text-gray-900 mb-2">
+                  {metric.value}
+                </h3>
+                <div className="flex items-center gap-1 text-emerald-500 text-sm">
+                  <TrendingUp className="w-4 h-4" />
+                  <span className="font-medium">{metric.change}</span>
+                  <span className="text-gray-500">this month</span>
+                </div>
               </div>
             ))}
           </div>
-        </div>
+        </section>
+
+        {/* Features Grid (mobile: show top 2 full-width stacked) */}
+        <section aria-labelledby="features-heading">
+          <h2 id="features-heading" className="sr-only">
+            Features
+          </h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+            {features.slice(0, 2).map((feature, index) => {
+              const Icon = feature.icon;
+              return (
+                <article
+                  key={index}
+                  className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300 group"
+                >
+                  <div className="flex items-start gap-4 mb-6">
+                    <div
+                      className={`w-12 h-12 sm:w-14 sm:h-14 bg-${feature.color}-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform`}
+                    >
+                      <Icon
+                        className={`w-6 h-6 sm:w-7 sm:h-7 text-${feature.color}-600`}
+                      />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1">
+                        {feature.title}
+                      </h3>
+                      <p className="text-gray-600 text-sm leading-relaxed">
+                        {feature.description}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-3 gap-4 pt-4 border-t border-gray-100">
+                    {feature.stats.map((stat, idx) => (
+                      <div key={idx} className="text-center">
+                        <div
+                          className={`text-xl sm:text-2xl font-bold text-${feature.color}-600 mb-1`}
+                        >
+                          {stat.value}
+                        </div>
+                        <div className="text-xs text-gray-500">
+                          {stat.label}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </article>
+              );
+            })}
+
+            {/* On larger screens, render the remaining features */}
+            {features.slice(2).map((feature, index) => {
+              const Icon = feature.icon;
+              return (
+                <article
+                  key={index}
+                  className="hidden lg:block bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group"
+                >
+                  <div className="flex items-start gap-4 mb-6">
+                    <div
+                      className={`w-14 h-14 bg-${feature.color}-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform`}
+                    >
+                      <Icon className={`w-7 h-7 text-${feature.color}-600`} />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-gray-900 mb-2">
+                        {feature.title}
+                      </h3>
+                      <p className="text-gray-600 text-sm leading-relaxed">
+                        {feature.description}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-3 gap-4 pt-6 border-t border-gray-100">
+                    {feature.stats.map((stat, idx) => (
+                      <div key={idx} className="text-center">
+                        <div
+                          className={`text-2xl font-bold text-${feature.color}-600 mb-1`}
+                        >
+                          {stat.value}
+                        </div>
+                        <div className="text-xs text-gray-500">
+                          {stat.label}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* Why Us Section */}
+        <section aria-labelledby="whyus-heading">
+          <h2 id="whyus-heading" className="sr-only">
+            Why choose us
+          </h2>
+          <div className="bg-gradient-to-r from-[#34b3e1] to-[#284390] rounded-3xl p-6 sm:p-10 shadow-2xl">
+            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6 sm:mb-8 text-center">
+              Why Choose Us
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+              {whyUs.map((item, index) => (
+                <div
+                  key={index}
+                  className="bg-white/10 backdrop-blur-sm rounded-xl p-4 sm:p-6 hover:bg-white/20 hover:shadow-lg transition-all duration-300 border border-white/20"
+                >
+                  <div className="inline-block px-3 py-1 bg-white/25 rounded-full text-white text-[10px] sm:text-xs font-medium mb-3 sm:mb-4">
+                    {item.highlight}
+                  </div>
+                  <h4 className="text-sm sm:text-lg font-bold text-white mb-1 sm:mb-2">
+                    {item.title}
+                  </h4>
+                  <p className="text-white/80 text-xs sm:text-sm">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* CTA Section */}
-
-        <div className="relative w-full flex flex-col items-center justify-center overflow-hidden rounded-3xl bg-[#34b3e1]/10 p-12 shadow-2xl">
-          {/* Dots in background */}
-          <DotPattern className="absolute inset-0 z-0 opacity-50 [mask-image:radial-gradient(circle_at_center,white,transparent_80%)]" />
-
-          <div className="relative z-10 flex flex-col items-center">
-            <h3 className="text-4xl font-extrabold text-gray-900 mb-4 text-center">
-              Ready to transform your sales process?
-            </h3>
-
-            <p className="text-gray-700 mb-8 max-w-2xl text-center text-lg leading-relaxed">
-              Deploy in minutes with CRM-native connectors and start seeing
-              results with predictable AI spend controls
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <section aria-labelledby="cta-heading">
+          <h2 id="cta-heading" className="sr-only">
+            Call to action
+          </h2>
+          <div className="relative w-full flex flex-col items-center justify-center overflow-hidden rounded-3xl bg-[#34b3e1]/10 p-8 sm:p-12 shadow-2xl">
+            <DotPattern className="absolute inset-0 z-0 opacity-50 [mask-image:radial-gradient(circle_at_center,white,transparent_80%)]" />
+            <div className="relative z-10 flex flex-col items-center text-center">
+              <h3 className="text-2xl sm:text-4xl font-extrabold text-gray-900 mb-3 sm:mb-4">
+                Ready to transform your sales process?
+              </h3>
+              <p className="text-gray-700 mb-6 sm:mb-8 max-w-2xl text-sm sm:text-lg leading-relaxed">
+                Deploy in minutes with CRM-native connectors and start seeing
+                results with predictable AI spend controls
+              </p>
               <button
                 onClick={() => setIsCalendlyOpen(true)}
-                className="px-10 py-4 bg-gradient-to-r from-[#34b3e1] to-[#284390] text-white font-bold rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300"
+                className="px-8 sm:px-10 py-3 sm:py-4 bg-gradient-to-r from-[#34b3e1] to-[#284390] text-white font-bold rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300"
               >
                 Schedule Demo
               </button>
             </div>
           </div>
-        </div>
+        </section>
       </div>
+
       <CalendlyModal
         isOpen={isCalendlyOpen}
         onClose={() => setIsCalendlyOpen(false)}

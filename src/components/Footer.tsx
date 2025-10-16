@@ -1,27 +1,27 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import Image from 'next/image';
+import { motion } from "framer-motion";
+import Image from "next/image";
 import {
   IconBrandInstagram,
   IconBrandLinkedin,
   IconBrandYoutube,
   IconBrandTwitter,
-} from '@tabler/icons-react';
+} from "@tabler/icons-react";
 
 const navigationLinks = [
-  { label: 'Privacy Policy', href: '#privacy' },
-  { label: 'Blog', href: '#blog' },
-  { label: 'Changelog', href: '#changelog' },
-  { label: 'Help & Docs', href: '#docs' },
-  { label: 'Contact', href: '#contact' },
+  { label: "Privacy Policy", href: "#privacy" },
+  { label: "Blog", href: "#blog" },
+  { label: "Changelog", href: "#changelog" },
+  { label: "Help & Docs", href: "#docs" },
+  { label: "Contact", href: "#contact" },
 ];
 
 const socialLinks = [
-  { icon: IconBrandInstagram, href: '#', label: 'Instagram' },
-  { icon: IconBrandLinkedin, href: '#', label: 'LinkedIn' },
-  { icon: IconBrandYoutube, href: '#', label: 'YouTube' },
-  { icon: IconBrandTwitter, href: '#', label: 'Twitter' },
+  { icon: IconBrandInstagram, href: "#", label: "Instagram" },
+  { icon: IconBrandLinkedin, href: "#", label: "LinkedIn" },
+  { icon: IconBrandYoutube, href: "#", label: "YouTube" },
+  { icon: IconBrandTwitter, href: "#", label: "Twitter" },
 ];
 
 export default function Footer() {
@@ -38,28 +38,30 @@ export default function Footer() {
         </p>
       </div>
 
-      <footer className="bg-gradient-to-br from-gray-100 to-gray-200 border-t border-gray-300">
+      <footer className="bg-gradient-to-b from-white via-sky-50 to-gray-50 border-t border-gray-300">
         <div className="max-w-7xl mx-auto px-8 py-12">
-          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 mb-8">
+          {/* Logo + Socials */}
+          <div className="flex flex-col items-center gap-6 mb-8 lg:flex-row lg:items-center lg:justify-between lg:gap-8">
             {/* Logo */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="flex items-center gap-2"
+              className="flex items-center justify-center"
             >
               <Image
                 src="/logo.png"
                 alt="VendAItion Logo"
-                width={240}
-                height={240}
+                width={300}
+                height={300}
                 className="rounded"
               />
             </motion.div>
 
+            {/* Social Icons */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               className="flex items-center gap-3"
             >
@@ -76,13 +78,14 @@ export default function Footer() {
             </motion.div>
           </div>
 
+          {/* Navigation Links */}
           <motion.nav
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="mb-8"
+            className="mb-8 text-center lg:text-left"
           >
-            <ul className="flex flex-wrap items-center gap-x-8 gap-y-3">
+            <ul className="flex flex-wrap justify-center lg:justify-start items-center gap-x-8 gap-y-3">
               {navigationLinks.map((link, index) => (
                 <li key={index}>
                   <a
@@ -96,11 +99,12 @@ export default function Footer() {
             </ul>
           </motion.nav>
 
-          <div className="text-sm text-gray-600 space-y-4 mb-10 px-2">
+          {/* Info Section */}
+          <div className="text-sm text-gray-600 space-y-4 mb-10 px-2 text-center lg:text-left">
             <p>
               🛡️ <strong>Privacy:</strong> VendAItion respects your privacy. We
               only process data required for pilot performance and can sign a
-              DPA on request.{' '}
+              DPA on request.{" "}
               <a
                 href="#privacy"
                 className="underline hover:text-gray-900 font-medium"
@@ -111,7 +115,7 @@ export default function Footer() {
             </p>
             <p>
               📝 <strong>Changelog:</strong> See the latest product updates and
-              release notes in{' '}
+              release notes in{" "}
               <a
                 href="#changelog"
                 className="underline hover:text-gray-900 font-medium"
@@ -122,16 +126,17 @@ export default function Footer() {
             </p>
           </div>
 
+          {/* Bottom Footer */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="pt-6 border-t border-gray-300 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-600"
+            className="pt-6 border-t border-gray-300 flex flex-col md:flex-row items-center justify-center md:justify-between gap-4 text-sm text-gray-600 text-center md:text-left"
           >
             <p>© 2025 VendAItion CRM</p>
-            <div className="flex items-center gap-6">
+            <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6">
               <p>
-                Made by ❤️{' '}
+                Made by ❤️{" "}
                 <a
                   href="https://VendAItion.tech"
                   target="_blank"

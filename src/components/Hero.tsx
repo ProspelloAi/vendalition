@@ -10,7 +10,8 @@ export default function Hero() {
   const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
   return (
     <>
-      <div className="fixed inset-0 bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 -z-10" />
+      <div className="fixed inset-0 bg-gradient-to-b from-white via-gray-50 to-sky-50 -z-10" />
+
       <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-purple-200/30 rounded-full blur-3xl animate-pulse" />
         <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-blue-200/30 rounded-full blur-3xl animate-pulse delay-1000" />
@@ -19,7 +20,7 @@ export default function Hero() {
       <Globe />
 
       <main id="features" className="relative z-0 ">
-        <div className="container mx-auto px-4 py-16">
+        <div className="container mx-auto px-4 py-4">
           <div className="text-center mb-16 animate-fade-in">
             <div className="hidden md:inline-flex items-center justify-center w-28 h-28 mb-8 animate-bounce-slow">
               <motion.div
@@ -65,7 +66,6 @@ export default function Hero() {
                 <InteractiveHoverButton>Request a demo</InteractiveHoverButton>
               </button>
 
-              {/* Apply for 8-week pilot */}
               <button
                 onClick={() => setIsCalendlyOpen(true)}
                 className="px-8 py-3 bg-[#284390] text-white rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center gap-2"
@@ -103,6 +103,7 @@ export default function Hero() {
             </span>
           </div>
         </div>
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent via-sky-50/60 to-sky-50 pointer-events-none" />
       </main>
       <CalendlyModal
         isOpen={isCalendlyOpen}

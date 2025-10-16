@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { Layers, Clock, Settings } from 'lucide-react';
-import { useRef, forwardRef } from 'react';
-import Image from 'next/image';
-import { cn } from '@/lib/utils';
+import { Layers, Clock, Settings } from "lucide-react";
+import { useRef, forwardRef } from "react";
+import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 const Circle = forwardRef<
   HTMLDivElement,
@@ -13,7 +13,7 @@ const Circle = forwardRef<
     <div
       ref={ref}
       className={cn(
-        'z-10 flex size-14 items-center justify-center rounded-2xl bg-white p-3 shadow-lg hover:shadow-xl transition-shadow duration-300',
+        "z-10 flex size-12 sm:size-14 items-center justify-center rounded-xl sm:rounded-2xl bg-white p-2.5 sm:p-3 shadow-lg hover:shadow-xl transition-shadow duration-300",
         className
       )}
     >
@@ -22,7 +22,7 @@ const Circle = forwardRef<
   );
 });
 
-Circle.displayName = 'Circle';
+Circle.displayName = "Circle";
 
 export default function Integration() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -35,36 +35,57 @@ export default function Integration() {
   const slackRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section id="integrations" className="container mx-auto px-4 py-20">
-      {/* Header */}
-      <div className="text-center mb-16 animate-fade-in">
-        <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full shadow-md mb-6">
+    <section
+      id="integrations"
+      className="container mx-auto px-4 sm:px-6 py-8 sm:py-20"
+    >
+      <div className="text-center mb-6 sm:mb-16 animate-fade-in">
+        <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-white/80 backdrop-blur-sm rounded-full shadow-md mb-4 sm:mb-6">
           <Layers className="w-4 h-4 text-gray-700" />
-          <span className="text-sm font-medium text-gray-700">
+          <span className="text-sm sm:text-sm font-medium text-gray-700">
             Integrations
           </span>
         </div>
-        <h2 className="text-5xl md:text-6xl font-light text-gray-800 mb-4">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-gray-800 mb-3 sm:mb-4 px-2 mt-8">
           Connects to your stack
         </h2>
-        <p className="text-gray-600 text-lg">
+        <p className="text-gray-600 text-sm sm:text-base md:text-lg px-4">
           HubSpot • Salesforce • Pipedrive • Zapier • Mailchimp • Slack — plus
           custom integrations via API.
         </p>
       </div>
 
-      {/* Integration Network */}
       <div
-        className="relative max-w-3xl mx-auto h-[450px] mb-16 flex items-center justify-center"
+        className="relative max-w-3xl mx-auto h-[300px] sm:h-[400px] lg:h-[450px] mb-12 sm:mb-16 flex items-center justify-center"
         ref={containerRef}
       >
         <style jsx>{`
           @keyframes orbit {
             from {
-              transform: rotate(0deg) translateX(180px) rotate(0deg);
+              transform: rotate(0deg) translateX(120px) rotate(0deg);
             }
             to {
-              transform: rotate(360deg) translateX(180px) rotate(-360deg);
+              transform: rotate(360deg) translateX(120px) rotate(-360deg);
+            }
+          }
+          @media (min-width: 640px) {
+            @keyframes orbit {
+              from {
+                transform: rotate(0deg) translateX(160px) rotate(0deg);
+              }
+              to {
+                transform: rotate(360deg) translateX(160px) rotate(-360deg);
+              }
+            }
+          }
+          @media (min-width: 1024px) {
+            @keyframes orbit {
+              from {
+                transform: rotate(0deg) translateX(180px) rotate(0deg);
+              }
+              to {
+                transform: rotate(360deg) translateX(180px) rotate(-360deg);
+              }
             }
           }
           .orbit-container {
@@ -76,9 +97,14 @@ export default function Integration() {
             position: absolute;
             top: 50%;
             left: 50%;
-            margin: -28px 0 0 -28px;
+            margin: -24px 0 0 -24px;
             animation: orbit 20s linear infinite;
             z-index: 5;
+          }
+          @media (min-width: 640px) {
+            .orbit-item {
+              margin: -28px 0 0 -28px;
+            }
           }
           .orbit-item:nth-child(4) {
             animation-delay: 0s;
@@ -101,11 +127,10 @@ export default function Integration() {
         `}</style>
 
         <div className="orbit-container">
-          {/* Central LOGO Hub */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30">
             <div
               ref={div4Ref}
-              className="size-64 flex items-center justify-center"
+              className="size-40 sm:size-52 md:size-64 flex items-center justify-center"
             >
               <Image
                 src="/logo.png"
@@ -118,8 +143,8 @@ export default function Integration() {
             </div>
           </div>
 
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[360px] h-[360px] border-2 border-white/60 rounded-full shadow-sm" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[380px] h-[380px] border-2 border-white/40 rounded-full shadow-sm" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[240px] h-[240px] sm:w-[320px] sm:h-[320px] lg:w-[360px] lg:h-[360px] border-2 border-white/60 rounded-full shadow-sm" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[260px] h-[260px] sm:w-[340px] sm:h-[340px] lg:w-[380px] lg:h-[380px] border-2 border-white/40 rounded-full shadow-sm" />
 
           <div className="orbit-item">
             <Circle
@@ -129,9 +154,9 @@ export default function Integration() {
               <Image
                 src="/hubspot.png"
                 alt="HubSpot"
-                width={36}
-                height={36}
-                className="object-contain"
+                width={32}
+                height={32}
+                className="object-contain w-7 h-7 sm:w-9 sm:h-9"
                 unoptimized
               />
             </Circle>
@@ -145,9 +170,9 @@ export default function Integration() {
               <Image
                 src="/salesforce.png"
                 alt="Salesforce"
-                width={36}
-                height={36}
-                className="object-contain"
+                width={32}
+                height={32}
+                className="object-contain w-7 h-7 sm:w-9 sm:h-9"
                 unoptimized
               />
             </Circle>
@@ -161,9 +186,9 @@ export default function Integration() {
               <Image
                 src="/pipedrive.png"
                 alt="Pipedrive"
-                width={36}
-                height={36}
-                className="object-contain"
+                width={32}
+                height={32}
+                className="object-contain w-7 h-7 sm:w-9 sm:h-9"
                 unoptimized
               />
             </Circle>
@@ -177,9 +202,9 @@ export default function Integration() {
               <Image
                 src="/zapier.png"
                 alt="Zapier"
-                width={36}
-                height={36}
-                className="object-contain"
+                width={32}
+                height={32}
+                className="object-contain w-7 h-7 sm:w-9 sm:h-9"
                 unoptimized
               />
             </Circle>
@@ -193,9 +218,9 @@ export default function Integration() {
               <Image
                 src="/mailchimp.png"
                 alt="Mailchimp"
-                width={36}
-                height={36}
-                className="object-contain"
+                width={32}
+                height={32}
+                className="object-contain w-7 h-7 sm:w-9 sm:h-9"
                 unoptimized
               />
             </Circle>
@@ -209,9 +234,9 @@ export default function Integration() {
               <Image
                 src="/slack.png"
                 alt="Slack"
-                width={36}
-                height={36}
-                className="object-contain"
+                width={32}
+                height={32}
+                className="object-contain w-7 h-7 sm:w-9 sm:h-9"
                 unoptimized
               />
             </Circle>
@@ -219,45 +244,47 @@ export default function Integration() {
         </div>
       </div>
 
-      {/* Features */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto animate-slide-up">
-        <div className="text-center group cursor-pointer">
-          <div className="inline-flex items-center justify-center w-12 h-12 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg mb-4 group-hover:shadow-xl transition-shadow duration-300">
-            <svg
-              className="w-6 h-6 text-gray-700"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-              />
-            </svg>
+      <div className="max-w-4xl mx-auto mb-10 sm:mb-0 animate-slide-up border-b border-gray-200 pb-10">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 sm:gap-8 place-items-center">
+          <div className="text-center group cursor-pointer">
+            <div className="inline-flex items-center justify-center w-12 h-12 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg mb-4 group-hover:shadow-xl transition-shadow duration-300">
+              <svg
+                className="w-6 h-6 text-gray-700"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                />
+              </svg>
+            </div>
+            <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-2">
+              Seamless Automation
+            </h3>
           </div>
-          <h3 className="text-lg font-semibold text-gray-800 mb-2">
-            Seamless Automation
-          </h3>
-        </div>
 
-        <div className="text-center group cursor-pointer">
-          <div className="inline-flex items-center justify-center w-12 h-12 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg mb-4 group-hover:shadow-xl transition-shadow duration-300">
-            <Clock className="w-6 h-6 text-gray-700" />
+          <div className="text-center group cursor-pointer">
+            <div className="inline-flex items-center justify-center w-12 h-12 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg mb-4 group-hover:shadow-xl transition-shadow duration-300">
+              <Clock className="w-6 h-6 text-gray-700" />
+            </div>
+            <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-2">
+              Real-Time Data Sync
+            </h3>
           </div>
-          <h3 className="text-lg font-semibold text-gray-800 mb-2">
-            Real-Time Data Sync
-          </h3>
-        </div>
 
-        <div className="text-center group cursor-pointer">
-          <div className="inline-flex items-center justify-center w-12 h-12 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg mb-4 group-hover:shadow-xl transition-shadow duration-300">
-            <Settings className="w-6 h-6 text-gray-700" />
+          <div className="col-span-2 sm:col-span-1 text-center group cursor-pointer">
+            <div className="inline-flex items-center justify-center w-12 h-12 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg mb-4 group-hover:shadow-xl transition-shadow duration-300">
+              <Settings className="w-6 h-6 text-gray-700" />
+            </div>
+            <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-2">
+              Customizable Solutions
+            </h3>
           </div>
-          <h3 className="text-lg font-semibold text-gray-800 mb-2">
-            Customizable Solutions
-          </h3>
+          <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
         </div>
       </div>
     </section>
